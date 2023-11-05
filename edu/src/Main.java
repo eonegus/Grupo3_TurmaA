@@ -1,6 +1,16 @@
 import java.util.Scanner;
 
 public class Main {
+
+    public static void proximo() {
+        //Função que faz o skip com o ENTER
+        Scanner scanner = new Scanner(System.in);
+        String next;
+        next = scanner.nextLine();
+        if (next.isEmpty()) {
+        }
+    }
+
     public static void menu() {
         //Menu principal do jogo
         Scanner scanner = new Scanner(System.in);
@@ -34,6 +44,7 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Você escolheu: Jogar");
+                jogar();
                 break;
             case 3:
                 System.out.println("Você escolheu: Créditos");
@@ -97,13 +108,25 @@ public class Main {
         menu();
     }
 
-    public static void proximo() {
-        //Função que faz o skip com o ENTER
+    public static void jogar(){
         Scanner scanner = new Scanner(System.in);
-        String next;
-        next = scanner.nextLine();
-        if (next.isEmpty()) {
-        }
+        capitulo1();
+    }
+
+    public static void capitulo1(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Teste");
+    }
+
+
+    public static void escolhaDir(){
+        Scanner scanner = new Scanner(System.in);
+
+    }
+
+    public static void escolhaEsq(){
+        Scanner scanner = new Scanner(System.in);
+
     }
 
     public static void main(String[] args) {
