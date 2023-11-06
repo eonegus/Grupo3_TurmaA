@@ -1,7 +1,9 @@
+import jdk.dynalink.NamedOperation;
+
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-
     public static void proximo() {
         //Função que faz o skip com o ENTER
         Scanner scanner = new Scanner(System.in);
@@ -9,6 +11,11 @@ public class Main {
         next = scanner.nextLine();
         if (next.isEmpty()) {
         }
+    }
+
+    public static void nome() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Qual seu nome?");
     }
 
     public static void menu() {
@@ -48,9 +55,13 @@ public class Main {
                 break;
             case 3:
                 System.out.println("Você escolheu: Créditos");
+                creditos();
                 break;
             case 4:
                 System.out.println("Saindo...");
+                System.out.println("Aperte ENTER para jogar...");
+                proximo();
+                menu();
                 break;
         }
     }
@@ -108,28 +119,73 @@ public class Main {
         menu();
     }
 
-    public static void jogar(){
+    public static void jogar() {
         Scanner scanner = new Scanner(System.in);
-        capitulo1();
+        //Inicia a apresentação do jogo
+        System.out.println("Bem vindo a UNDER THE LIGHTS");
+        System.out.println("Para começarmos, me diga, como devo chama-lo?:");
+        //Deixa o usuario livre para escolher seu nome
+        String nome = scanner.nextLine();
+        System.out.println("Olá, " + nome + "!");
+        //passa o nome para a função
+        capitulo1(nome);
     }
 
-    public static void capitulo1(){
+    public static void capitulo1(String nome) {
+        //a Função já está recebendo o nome pré estabelecido
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Teste");
+        System.out.println("Bem vindo " + nome);
+
+        capitulo2(nome);
     }
 
+    public static void capitulo2(String nome){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(nome + " Olá");
 
-    public static void escolhaDir(){
+        capitulo3(nome);
+    }
+
+    public static void capitulo3(String nome){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(nome + " Olá");
+        capitulo4(nome);
+    }
+
+    public static void capitulo4(String nome){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(nome + " Olá");
+    }
+    public static void escolhaDir() {
         Scanner scanner = new Scanner(System.in);
 
     }
 
-    public static void escolhaEsq(){
+    public static void escolhaEsq() {
         Scanner scanner = new Scanner(System.in);
 
+    }
+
+    public static void creditos() {
+        //Créditos finais
+        System.out.println();
+        System.out.println("-------------CRÉDITOS-------------");
+        System.out.println("-                                -");
+        System.out.println("-      Alessandra Fernandes      -");
+        System.out.println("-        Felipe Ferreira         -");
+        System.out.println("-          João Victor           -");
+        System.out.println("-         Vitor Gonçalves        -");
+        System.out.println("-                                -");
+        System.out.println("----------------------------------");
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //começo do jogo para que o usuario decida começar
+        System.out.println("Olá, bem vindo a 'UNDER THE LIGHTS'");
+        System.out.println("Aperte ENTER para começar o jogo");
+        proximo();
         menu();
+
     }
 }
