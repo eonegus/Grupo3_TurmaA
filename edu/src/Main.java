@@ -141,7 +141,7 @@ public class Main {
 
     public static void capitulo2(String nome){
         Scanner scanner = new Scanner(System.in);
-        System.out.println(nome + " Olá");
+        
 
         capitulo3(nome);
     }
