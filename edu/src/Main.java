@@ -2,8 +2,10 @@ import jdk.dynalink.NamedOperation;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
+    static int temp_dialog =70, temp_narrativa = 150, temp_transicao = 25;
     public static void proximo() {
         //Função que faz o skip com o ENTER
         Scanner scanner = new Scanner(System.in);
@@ -389,6 +391,13 @@ public class Main {
         System.out.println("-         Vitor Gonçalves        -");
         System.out.println("-                                -");
         System.out.println("----------------------------------");
+    }
+
+    public static void Digita(String mensagem, TimeUnit unit, long tempo_mensagem) throws InterruptedException {
+        for (char caractere : mensagem.toCharArray()) {
+            System.out.print(caractere);
+            unit.sleep(tempo_mensagem);
+        }
     }
 
     public static void main(String[] args) {
