@@ -142,16 +142,19 @@ public class Main {
     }
 
     public static void capitulo2(String nome) {
-        int resposta1, resp2op3 = 0;
+        int resposta1, desafio1, escolhaDesafio2, resp2op3 = 0;
+
         Scanner menu = new Scanner(System.in);
 
         System.out.println("Seguindo o que o Edgar disse, Você segue em frente.\n " +
                 "E acaba se deparando com uma sala misteriosa, iluminada por uma luz fraca. No centro da sala, havia uma escrita enigmática em uma pedra antiga: \n" +
-                "'Edgar: Entenda jovem aventureiro, nesse lugar a matemática domina, e tudo envolve cálculo.'\n" +
-                " 'Você pode optar sempre por não responder a pergunta, mas saiba que sempre estarei por perto para te ajudar, basta você falar “dica”");
+                "'Edgar: Entenda jovem aventureiro, nesse lugar a matemática domina, e tudo envolve cálculo...'");
+        proximo();
+
+        System.out.println("Você pode optar sempre por não responder a pergunta, mas saiba que sempre estarei por perto para te ajudar, basta você falar dica");
 
         // DESAFIO 1
-        System.out.println("Vamos ao primeiro desafio, por acaso você conhece sobre Polinómios?");
+        System.out.println("Vamos ao primeiro desafio, por acaso você conhece sobre Polinómios?...");
         System.out.println(" 1 - Sim.\n" +
                 " 2 - Não.\n" +
                 " 3 - Sim, porém não lembro.");
@@ -169,193 +172,234 @@ public class Main {
                         "B = Termos que acompanham x;\n" +
                         "C = Algarismos que não acompanham um valor de X.'");
                 break;
-
         }
 
-        System.out.println("\n" +
-                "Bom, então vamos lá.\n" +
+        System.out.println("Bom, então vamos lá.\n" +
                 "Para avançar em sua busca, você deve decifrar o enigma do polinómio mágico.\n" +
-                "Responda corretamente e o caminho se abrirá diante de você.\n" +
-                "A escrita então se revelou a seguinte equação polinomial: ");
+                "Responda corretamente e o caminho se abrirá diante de você...");
+        proximo();
+        System.out.println("A escrita então se revelou a seguinte equação polinomial: ");
         // Desafio 1
         System.out.println("2x² + 4x + 3 + 4x² – 2x + 4");
 
-        System.out.println("Caso a resposta esteja correta a parede em frente se abrirá dando passagem para que você possa seguir em frente.");
-        System.out.println("\n" +
-                "1)  6x² - 2x + 7\n" +
-                "2)  6x² + 2x - 7\n" +
-                "3)  6x² + 2x + 7");
+        do {
+            System.out.println("Caso a resposta esteja correta a parede em frente se abrirá dando passagem para que você possa seguir em frente...");
+            proximo();
+            System.out.println("1)  6x² - 2x + 7\n" +
+                    "2)  6x² + 2x - 7\n" +
+                    "3)  6x² + 2x + 7\n" +
+                    "4) Dica");
 
-        int desafio1 = menu.nextInt();
+            desafio1 = menu.nextInt();
 
-        switch (desafio1) {
-            case 1:
-                System.out.println("Resposta errada!");
-                break;
+            switch (desafio1) {
+                case 1:
+                    System.out.println("Resposta errada!");
+                    break;
+                case 2:
+                    System.out.println("Resposta errada!");
+                    break;
 
-            case 2:
-                System.out.println("Resposta errada!");
-                break;
+                case 3:
+                    System.out.println("Resposta certa!");
+                    break;
 
-            case 3:
-                System.out.println("Resposta certa!");
-                break;
+                case 4:
+                    System.out.println("Dica: Primeiro some os termos independentes, depois combine os termos semelhantes.");
+                    break;
 
-            case 4:
-                System.out.println("Dica: Primeiro some os termos independentes, depois combine os termos semelhantes.");
-                break;
-
-            default:
-                System.out.println("Opção Inválida!");
-                break;
-
-        }
+                default:
+                    System.out.println("Opção Inválida!");
+                    break;
+            }
+        } while (desafio1 != 3);
 
         System.out.println("\n" +
                 "Quando essa porta se abre o jogador vê em sua frente um enorme salão dourado.\n" +
-                " a impressão é de que ele tenha saído desse universo, e entrado em uma cidade medieval.\n" +
-                " O salão é enorme e está em ruínas, aparentemente diversos saques e guerras aconteceram nesse local.\n" +
-                "Ao final da sala uma enorme cadeira, na qual com certeza não foi projetada para um ser humano se sentar.");
+                " a impressão é de que ele tenha saído desse universo, e entrado em uma cidade medieval...");
+        proximo();
+        System.out.println("O salão é enorme e está em ruínas, aparentemente diversos saques e guerras aconteceram nesse local.\n" +
+                "Ao final da sala uma enorme cadeira, na qual com certeza não foi projetada para um ser humano se sentar...");
+        proximo();
 
-        System.out.println("\n" +
-                "Você pergunta:  \n" +
+        System.out.println("Você pergunta:  \n" +
                 "1 - Edgar, que lugar é esse?\n" +
                 "2 - Uau, o que está rolando aqui?");
 
-        int pergunta5 = menu.nextInt();
+        int pergunta2 = menu.nextInt();
 
-        switch (pergunta5) {
+        switch (pergunta2) {
             case 1:
-                System.out.println("\n" +
-                        "1 - “Então jogador, como eu posso explicar… \n" +
-                        "Esse é o lugar onde o mundo começou, ou seja, aqui é o lugar onde eu nasci.\n" +
-                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui.\n" +
-                        "Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde”.");
+                System.out.println("1 - “Então jogador, como eu posso explicar… ");
+                proximo();
+                System.out.println("Esse é o lugar onde o mundo começou, ou seja, aqui é o lugar onde eu nasci.\n" +
+                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui...");
+                proximo();
+                System.out.println("Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde”");
                 break;
 
             case 2:
-                System.out.println("\n" +
-                        "2 - An? Ah, você chegou ao salão principal. Bom aqui é o lugar onde seu desafio começa.\n" +
+                System.out.println("2 - An? Ah, você chegou ao salão principal. Bom aqui é o lugar onde seu desafio começa.\n" +
                         " Esse é o lugar onde o mundo começou, ou seja, aqui é o lugar onde eu nasci.\n" +
-                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui.\n" +
-                        "Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde”.");
+                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui...");
+                proximo();
+                System.out.println("Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde” ...");
                 break;
 
             default:
-                System.out.println("\n" +
-                        "Opção Invalida!");
+                System.out.println("Opção Invalida!");
                 break;
         }
 
-        System.out.println("\n" +
-                "Olhe em volta jovem, tudo aqui é feito do mais puro ouro, há algo mais perfeito do que isso?");
-
-        System.out.println("\n" +
-                "1 - “Centro da terra? Monde? Dá pra explicar melhor?”\n" +
+        System.out.println("Olhe em volta jovem, tudo aqui é feito do mais puro ouro, há algo mais perfeito do que isso? ...");
+        proximo();
+        System.out.println("Você diz para Edgar: Que interessante, mas...");
+        proximo();
+        System.out.println("1 - “Centro da terra? Monde? Dá pra explicar melhor?”\n" +
                 "2 - “Ok, Edgar. Então aqui é o centro da criação?”\n");
 
-        int pergunta6 = menu.nextInt();
+        int pergunta3 = menu.nextInt();
 
-        switch (pergunta6) {
+        switch (pergunta3) {
             case 1, 2:
-                System.out.println("\n" +
-                        "Edgar apenas olha para você e segue em frente\n" +
+                System.out.println("Edgar apenas olhe para você e segue em frente\n" +
                         "“Relaxa, você vai entender melhor”\n");
                 break;
 
             default:
-                System.out.println("\n" +
-                        "Opção Invalida!");
+                System.out.println("Opção Invalida!");
         }
-        System.out.println("\n" +
-                "Um enorme som ecoa na sala, grandes muros se erguem e revelam diferentes valores.\n" +
-                "'Edgar: “Bom aqui está o primeiro desafio então'");
-
-        System.out.println("\n" +
-                "'Edgar: “Bom aqui está o primeiro desafio então'”");
+        System.out.println("Um enorme som ecoa na sala, grandes muros se erguem e revelam diferentes valores.\n" +
+                "'Edgar: “Bom aqui está outro desafio para você...'");
+        proximo();
 
         // DESAFIO 2
-        System.out.println("\n" +
-                "Saindo do grande salão vc percebe que as parede estão diferentes. o que antes eram paredes rochosas, apertadas e escuras,\n" +
-                " pouco a pouco tornam-se paredes feitas de uma rocha branca, que lembra muito mármore.");
-        System.out.println("\n" +
-                "O corredor começa a se tornar mais uniforme, não há mais tantos buracos no chão,\n" +
+        System.out.println("Saindo do grande salão vc percebe que as paredes estão diferentes. o que antes eram paredes rochosas, apertadas e escuras,\n" +
+                " pouco a pouco tornam-se paredes feitas de uma rocha branca, que lembra muito mármore...");
+        proximo();
+        System.out.println("O corredor começa a se tornar mais uniforme, não há mais tantos buracos no chão,\n" +
                 " as paredes se mantêm com um toque delicado de mármore.\n" +
-                "Caminhando mais e mais, com o que parece ser um corredor sem fim, logo a frente um feixe de luz se forma");
-
-        System.out.println("\n" +
-                "Qual ação devo tomar...\n" +
-                "1 - Correr em direção a luz\n" +
+                "Caminhando mais e mais, com o que parece ser um corredor sem fim, logo a frente um feixe de luz se forma...");
+        proximo();
+        System.out.println("Qual ação devo tomar...");
+        proximo();
+        System.out.println("1 - Correr em direção a luz\n" +
                 "2 - Continuar andando\n" +
                 "3 - parar e analisar o local");
 
-        int pergunta7 = menu.nextInt();
+        int pergunta4 = menu.nextInt();
 
-        switch (pergunta7) {
+        switch (pergunta4) {
             case 1:
-                System.out.println("\n" +
-                        "Ao correr em direção a luz, acreditando ser a saída o jogador acaba tropeçando em um fio que abre um alçapão\n" +
-                        " você começa a descer o que parece ser propositalmente um escorredor, ao chegar no final você se sente em uma espécie de colchão d´água.");
+                System.out.println("Ao correr em direção a luz, acreditando ser a saída o jogador acaba tropeçando em um fio que abre um alçapão\n" +
+                        " você começa a descer o que parece ser propositalmente um escorregador, ao chegar no final você se sente em uma espécie de colchão d´água.");
                 break;
             case 2:
-                System.out.println("\n" +
-                        "Ao continuar andando em direção a luz, chegando perto desse feixe de luz você se descuida um pouco,\n" +
+                System.out.println("Ao continuar andando em direção a luz, chegando perto desse feixe de luz você se descuida um pouco,\n" +
                         " e o que aparenta ser uma parte do piso é uma placa, ao pisar nessa placa o chão se abre e você começa a descer\n" +
                         " o que parece ser propositalmente um escorregador, ao chegar no final vc se sente em uma espécie de colchão d´água.");
                 break;
             case 3:
-                System.out.println("\n" +
-                        "Analisando em volta você percebe uma espécie de chão falso, entende que se pisar ali algo irá acontecer.\n" +
+                System.out.println("Analisando em volta você percebe uma espécie de chão falso, entende que se pisar ali algo irá acontecer.\n" +
                         " O feixe de luz aparenta vir de um buraco na parede que não leva a saída e sim a outro lugar");
-                System.out.println("\n" +
-                        "chegando nesse outro lugar, você terá duas opções:" +
-                        "1- tentar contornar o chão falso\n" +
-                        "2- Procurar outro jeito.");
-                int respOp3 = menu.nextInt();
-
-                switch (respOp3) {
-                    case 1:
-                        System.out.println("\n" +
-                                "Você consegue contornar o chão falso e chegar até o buraco na parede, olhando o que vem através dele\n" +
-                                " não consegue entender direito o que acontece ali, alguns vultos passam rapidamente e ofuscam seu entendimento.");
-                        break;
-
-                    case 2:
-                        System.out.println("Olhando em volta novamente, apenas vê o caminho no qual vc veio e paredes de mármore sem nada diferente.");
-                        break;
-
-                    default:
-                        System.out.println("Opção Invalida.");
-                        break;
-                }
-
-                do {
-                    System.out.println("\n" +
-                            "Sem saber o que fazer, terá duas opções\n" +
-                            "1- Entrar no chão falso\n" +
-                            "2- Perguntar a Edgar o que fazer");
-                    resp2op3 = menu.nextInt();
-
-                    switch (resp2op3) {
-                        case 1:
-                            System.out.println("Ao pisar nessa placa o chão se abre e você começa a descer\n" +
-                                    " o que parece ser propositalmente um escorregador, ao chegar no final vc se sente em uma espécie de colchão d´agua.");
-                            break;
-
-                        case 2:
-                            System.out.println("Olá jovem, eu não sei exatamente se posso te dizer o que fazer, mas vamos, tenha coragem.");
-                            break;
-
-                        case 3:
-                            System.out.println("Olhando em volta novamente, apenas vê o caminho no qual vc veio e paredes de mármore sem nada diferente.");
-                            break;
-
-                        default:
-                            System.out.println("Opção Invalida.");
-                    }
-                } while (resp2op3 != 1);
+                break;
+            default:
+                System.out.println("Resposta invalida.");
+                break;
         }
+        if (pergunta4 == 3) {
+            System.out.println("chegando nesse outro lugar, você terá duas opções: ");
+            System.out.println("1- tentar contornar o chão falso\n" +
+                    "2- Procurar outro jeito.");
+
+            int respOp3 = menu.nextInt();
+
+            switch (respOp3) {
+                case 1:
+                    System.out.println("Você consegue contornar o chão falso e chegar até o buraco na parede, olhando o que vem através dele\n" +
+                            " não consegue entender direito o que acontece ali, alguns vultos passam rapidamente e ofuscam seu entendimento.");
+                    break;
+
+                case 2:
+                    System.out.println("Olhando em volta novamente, apenas vê o caminho no qual vc veio e paredes de mármore sem nada diferente.");
+                    break;
+
+                default:
+                    System.out.println("Opção Invalida.");
+                    break;
+            }
+        }
+
+        do {
+            System.out.println("Sem saber o que fazer, terá duas opções:");
+            proximo();
+            System.out.println("1- Entrar no chão falso\n" +
+                    "2- Perguntar a Edgar o que fazer");
+            resp2op3 = menu.nextInt();
+
+            switch (resp2op3) {
+                case 1:
+                    System.out.println("Ao pisar nessa placa o chão se abre e você começa a descer\n" +
+                            " o que parece ser propositalmente um escorregador, ao chegar no final vc se sente em uma espécie de colchão d´agua.");
+                    break;
+
+                case 2:
+                    System.out.println("Olá jovem, eu não sei exatamente se posso te dizer o que fazer, mas vamos, tenha coragem.");
+                    break;
+
+                default:
+                    System.out.println("Opção Invalida.");
+                    break;
+            }
+        } while (resp2op3 != 1);
+
+        System.out.println("Enquanto está deitado no colchão d'água, uma mensagem misteriosa aparece em uma placa próxima:");
+        System.out.println("Para avançar, resolva o seguinte polinômio: ...");
+        proximo();
+        System.out.println("4x³ - 2x² + 5x - 3");
+
+        do {
+            System.out.println("Caso a resposta esteja correta, a parede em frente se abrirá, dando passagem para que você possa seguir em frente...");
+            proximo();
+            System.out.println("1)  2x³ + 3x² - 2x - 1\n" +
+                    "2)  4x³ - x² + 5x - 3\n" +
+                    "3)  4x³ - 2x² + 5x + 3\n" +
+                    "4) Dica");
+
+            escolhaDesafio2 = menu.nextInt();
+
+            switch (escolhaDesafio2) {
+                case 1:
+                    System.out.println("Infelizmente, a resposta está incorreta. O colchão d'água parece ficar mais agitado, mas nada acontece...");
+                    proximo();
+                    break;
+                case 2:
+                    System.out.println("Parabéns! Você resolveu o desafio. A parede se abre, revelando um novo caminho...");
+                    proximo();
+                    break;
+                case 3:
+                    System.out.println("Infelizmente, a resposta está incorreta. O colchão d'água parece ficar mais agitado, mas nada acontece...");
+                    proximo();
+                    break;
+                case 4:
+                    System.out.println("Considere agrupar termos e aplicar fatoração por grupos para simplificar o polinômio ");
+                    break;
+                default:
+                    System.out.println("Opção invalida.");
+                    break;
+            }
+        } while (escolhaDesafio2 != 2);
+
+
+        System.out.println("Ao sair do colchão e atravessar o muro que se abriu em sua frente, seus olhos doem com o intenso brilho que é mostrado...\n" +
+                " Diante dos seus olhos vc se depara com um “novo mundo”...");
+        proximo();
+        System.out.println("Seres místicos voam sobre sua cabeça, elfos brincam na cidade\n" +
+                " e o que parece ser um enorme castelo está acentuado no meio disso tudo, emitindo uma intensa luz.");
+
+
         capitulo3(nome);
+
     }
 
 
