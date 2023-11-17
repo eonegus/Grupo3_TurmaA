@@ -135,7 +135,126 @@ public class Main {
         //a Função já está recebendo o nome pré estabelecido
         Scanner scanner = new Scanner(System.in);
         Digita("Bem vindo \n" + nome,TimeUnit.MILLISECONDS);
+        byte escolha;
+        byte escolha2;
+        byte escolha3;
+        byte escolha4;
 
+        System.out.println("\nParis, França \nEsse é o local que você está! Seu destino? As catacumbas da cidade…\n");
+        System.out.println("Diversas pessoas caminham pela cidade alegremente, de forma comum,\ngporém duas pessoas em específico chamam sua atenção");
+        System.out.println("Eles aparentam ser pesquisadores, andando com grandes bolsas e ferramentas");
+        System.out.println("Você chega perto e decide falar com eles");
+        proximo();
+        System.out.println("\n\nEscolha o que você deseja perguntar");
+        System.out.println("\n\n1- Olá, por acaso vocês poderiam me ajudar?" );
+        System.out.println("\n2- Ei. É… Eu gostaria de perguntar uma coisa.\n ");
+        escolha = entrada.nextByte();
+        proximo();
+
+
+        switch (escolha) {
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                System.out.println("\nEscolha uma opção válida!\n\n");
+                break;
+        }
+        proximo();
+
+        System.out.println("\n\n -------- Apresentando os Personagens -------- \n\n");
+        System.out.println("\n- Osmar, é um homem negro que possui\n cabelos encaracolados e grisalhos. Parece ter por volta de 50 anos. \n Sua característica mais chamativa certamente é sua altura,\n que parece chegar facilmente aos 1.9O. de altura\n Osmar tem um grande número de cicatrizes pelo corpo, \n parece já ter passado por muito na vida.\n");
+        System.out.println("\nJunto dele tem uma mulher presente \n- Mika é uma  branca de cabelos cacheados e pretos,\n aparenta estar na casa dos 40 anos. E apesar de ser baixinha,\n Mika é uma mulher centrada e com muitas capacidades de exploração.\n Todos esses anos em que vivenciou suas aventuras, fizeram a \n ficar muito forte e atenta a todos os sinais de perigo ao seu redor.");
+        System.out.println("\n-------- Fim das Apresentações --------\n");
+        proximo();
+
+        System.out.println("\n\nOsmar olha para você e diz...");
+        System.out.println("\nClaro que sim, aliás, sou Osmar e essa minha companheira, Mika.\nEla sorri de forma amigável.\n Me diga o que precisa?\n");
+
+
+        System.out.println("\n\nEsoclha uma das alternativas:\n");
+        System.out.println("\n\n1- Eu gostaria de ir até as catacumbas, sabe como chegar?");
+        System.out.println("\n2- Quero conhecer os túneis, poderiam me mostrar a entrada?\n ");
+
+        do {
+            escolha2 = entrada.nextByte();
+            switch (escolha2) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+
+            }
+        } while (escolha2 != 1 && escolha2 != 2);
+
+        proximo();
+        System.out.println("\nOsmar responde:\n");
+        System.out.println("\nClaro, te mostro o caminho, mas o resto é contigo. Se quiser, vamos agora\n");
+        System.out.println("\nVocê segue eles.");
+        System.out.println("\nSeguindo Mika e Osmar, eles te levam a uma antiga ferrovia da cidade, abrem uma porta e dizem:\n");
+        System.out.println("\nMika e Osmar: “Bom. Só vamos até aqui. Boa sorte com o que você está procurando.\n");
+        System.out.println("\nE antes que você possa falar tchau, eles desaparecem atrás de você.\n");
+        System.out.println("\nEnquanto você caminha sozinho no escuro apenas com uma lanterna\ne sua bolsa com algumas ferramentas básicas\nvocê escuta alguma voz lhe chamando..." +
+                "\n");
+        proximo();
+
+        System.out.println("\n(?)Olá " + nome + " , o que faz aqui?\n");
+        System.out.println("\n 1- Olá?");
+        System.out.println("\n 2- OI… quem é?");
+        System.out.println("\n 3-Seguir em frente\n");
+
+        escolha3 = entrada.nextByte();
+        switch (escolha3){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                System.out.println("\nEscolha uma opção válida!\n\n");
+                break;
+        }
+        proximo();
+        System.out.println("\nVocê segue em frente, sua lanterna começa a piscar e sem perceber o\n chão abaixo se abre e você cai de uma altura de +/- 2 metros.\n");
+        System.out.println("\nOlhando em volta você apenas vê paredes com algumas aranhas\ne baratas caminhando nela.");
+
+        System.out.println("\nNessa “sala” há dois túneis, um do seu lado direito e o outro do lado esquerdo");
+        System.out.println("\n\nEscolha o túnel");
+        System.out.println("\n D- Túnel da Direita");
+        System.out.println("\n E- Túnel da Esquerda");
+
+        proximo();
+        System.out.println("\nAo entrar nessa nova sala, novamente uma voz ecoa\n");
+        System.out.println("\n(?): Aparentemente você já entendeu como funcionam as coisas por aqui,\nacho que já está na hora de nos conhecermos.\n");
+        System.out.println("O pequeno ser olha para o jogador e fala:");
+        System.out.println("\nOlá," + nome + "meu nome é Edgar, sou o elfo responsável por esse lugar\ndevo dizer que você veio para em um lugar bem diferente…" + "PORÉM como eu sou um ajudante, irei te auxiliar com os desafios para sair daqui!”\n");
+
+        System.out.println("Escolha uma das opções:");
+        System.out.println("\n1- Perdão… o que você é?\n");
+        System.out.println("\n2- Tá.. Ajudar com o que exatamente?");
+        System.out.println("\n3- Elfo? Isso não existe");
+
+        escolha4 = entrada.nextByte();
+        //respostas do edgar:
+        switch (escolha4){
+            case 1:
+                System.out.println("1: Orás, sou Edgar um elfo ajudante. Como você entrou aqui eu serei o responsável para que você saia, em segurança.\n");
+                break;
+            case 2:
+                System.out.println("2: Bom, já que você invadiu aqui eu sou responsável por garantir que você saia, em segurança.\n");
+                break;
+            case 3:
+                System.out.println("3: Ei… Isso ofendeu. Eu sou o Elfo ajudante e responsável por garantir que você saia, em segurança.\n");
+                break;
+            default:
+                System.out.println("\nEscolha uma opção válida!\n\n");
+                break;
+        }
+        capitulo2(nome);
+    }
         capitulo2(nome);
     }
 
