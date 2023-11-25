@@ -258,261 +258,262 @@ public class Main {
         capitulo2(nome);
     }
 
-    public static void capitulo2(String nome) {
+    public static void capitulo2(String nome) throws InterruptedException {
         int resposta1, desafio1, escolhaDesafio2, resp2op3 = 0;
 
         Scanner menu = new Scanner(System.in);
 
-        System.out.println("Seguindo o que o Edgar disse, Você segue em frente.\n " +
+        Digita("Seguindo o que o Edgar disse, Você segue em frente.\n " +
                 "E acaba se deparando com uma sala misteriosa, iluminada por uma luz fraca. No centro da sala, havia uma escrita enigmática em uma pedra antiga: \n" +
-                "'Edgar: Entenda jovem aventureiro, nesse lugar a matemática domina, e tudo envolve cálculo...'");
+                "'Edgar: Entenda jovem aventureiro, nesse lugar a matemática domina, e tudo envolve cálculo...'",TimeUnit.MILLISECONDS);
         proximo();
 
-        System.out.println("Você pode optar sempre por não responder a pergunta, mas saiba que sempre estarei por perto para te ajudar, basta você falar dica");
+        Digita("Você pode optar sempre por não responder a pergunta, mas saiba que sempre estarei por perto para te ajudar, basta você falar dica",TimeUnit.MILLISECONDS);
 
         // DESAFIO 1
-        System.out.println("Vamos ao primeiro desafio, por acaso você conhece sobre Polinómios?...");
-        System.out.println(" 1 - Sim.\n" +
+        Digita("Vamos ao primeiro desafio, por acaso você conhece sobre Polinómios?...",TimeUnit.MILLISECONDS);
+        Digita(" 1 - Sim.\n" +
                 " 2 - Não.\n" +
-                " 3 - Sim, porém não lembro.");
+                " 3 - Sim, porém não lembro.",TimeUnit.MILLISECONDS);
 
         int pergunta1 = menu.nextInt();
 
         switch (pergunta1) {
             case 1:
-                System.out.println("Sim.");
+                Digita("Sim.",TimeUnit.MILLISECONDS);
                 break;
             case 2:
-                System.out.println("Não.");
-                System.out.println("'Edgar: Bom, deixa eu te explicar um pouco, em um polinómio há três termos: \n" +
+                Digita("Não.",TimeUnit.MILLISECONDS);
+                Digita("'Edgar: Bom, deixa eu te explicar um pouco, em um polinómio há três termos: \n" +
                         "A = termos que acompanham x²\n" +
                         "B = Termos que acompanham x;\n" +
-                        "C = Algarismos que não acompanham um valor de X.'");
+                        "C = Algarismos que não acompanham um valor de X.'",TimeUnit.MILLISECONDS);
                 break;
         }
 
-        System.out.println("Bom, então vamos lá.\n" +
+        Digita("Bom, então vamos lá.\n" +
                 "Para avançar em sua busca, você deve decifrar o enigma do polinómio mágico.\n" +
-                "Responda corretamente e o caminho se abrirá diante de você...");
+                "Responda corretamente e o caminho se abrirá diante de você...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("A escrita então se revelou a seguinte equação polinomial: ");
+        Digita("A escrita então se revelou a seguinte equação polinomial: ",TimeUnit.MILLISECONDS);
         // Desafio 1
-        System.out.println("2x² + 4x + 3 + 4x² – 2x + 4");
+        Digita("2x² + 4x + 3 + 4x² – 2x + 4",TimeUnit.MILLISECONDS);
 
         do {
-            System.out.println("Caso a resposta esteja correta a parede em frente se abrirá dando passagem para que você possa seguir em frente...");
+            Digita("Caso a resposta esteja correta a parede em frente se abrirá dando passagem para que você possa seguir em frente...",TimeUnit.MILLISECONDS);
             proximo();
-            System.out.println("1)  6x² - 2x + 7\n" +
+            Digita("1)  6x² - 2x + 7\n" +
                     "2)  6x² + 2x - 7\n" +
                     "3)  6x² + 2x + 7\n" +
-                    "4) Dica");
+                    "4) Dica",TimeUnit.MILLISECONDS);
 
             desafio1 = menu.nextInt();
 
             switch (desafio1) {
                 case 1:
-                    System.out.println("Resposta errada!");
+                    Digita("Resposta errada!",TimeUnit.MILLISECONDS);
                     break;
                 case 2:
-                    System.out.println("Resposta errada!");
+                    Digita("Resposta errada!",TimeUnit.MILLISECONDS);
                     break;
 
                 case 3:
-                    System.out.println("Resposta certa!");
+                    Digita("Resposta certa!",TimeUnit.MILLISECONDS);
                     break;
 
                 case 4:
-                    System.out.println("Dica: Primeiro some os termos independentes, depois combine os termos semelhantes.");
+                    Digita("Dica: Primeiro some os termos independentes, depois combine os termos semelhantes.",TimeUnit.MILLISECONDS);
                     break;
 
                 default:
-                    System.out.println("Opção Inválida!");
+                    Digita("Opção Inválida!",TimeUnit.MILLISECONDS);
                     break;
             }
         } while (desafio1 != 3);
 
-        System.out.println("\n" +
+        Digita("\n" +
                 "Quando essa porta se abre o jogador vê em sua frente um enorme salão dourado.\n" +
-                " a impressão é de que ele tenha saído desse universo, e entrado em uma cidade medieval...");
+                " a impressão é de que ele tenha saído desse universo, e entrado em uma cidade medieval...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("O salão é enorme e está em ruínas, aparentemente diversos saques e guerras aconteceram nesse local.\n" +
-                "Ao final da sala uma enorme cadeira, na qual com certeza não foi projetada para um ser humano se sentar...");
+        Digita("O salão é enorme e está em ruínas, aparentemente diversos saques e guerras aconteceram nesse local.\n" +
+                "Ao final da sala uma enorme cadeira, na qual com certeza não foi projetada para um ser humano se sentar...",TimeUnit.MILLISECONDS);
         proximo();
 
-        System.out.println("Você pergunta:  \n" +
+        Digita("Você pergunta:  \n" +
                 "1 - Edgar, que lugar é esse?\n" +
-                "2 - Uau, o que está rolando aqui?");
+                "2 - Uau, o que está rolando aqui?",TimeUnit.MILLISECONDS);
 
         int pergunta2 = menu.nextInt();
 
         switch (pergunta2) {
             case 1:
-                System.out.println("1 - “Então jogador, como eu posso explicar… ");
+                Digita("1 - “Então jogador, como eu posso explicar… ",TimeUnit.MILLISECONDS);
                 proximo();
-                System.out.println("Esse é o lugar onde o mundo começou, ou seja, aqui é o lugar onde eu nasci.\n" +
-                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui...");
+                Digita("Esse é o lugar onde o mundo começou, ou seja, aqui é o lugar onde eu nasci.\n" +
+                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui...",TimeUnit.MILLISECONDS);
                 proximo();
-                System.out.println("Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde”");
+                Digita("Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde”",TimeUnit.MILLISECONDS);
                 break;
 
             case 2:
-                System.out.println("2 - An? Ah, você chegou ao salão principal. Bom aqui é o lugar onde seu desafio começa.\n" +
+                Digita("2 - An? Ah, você chegou ao salão principal. Bom aqui é o lugar onde seu desafio começa.\n" +
                         " Esse é o lugar onde o mundo começou, ou seja, aqui é o lugar onde eu nasci.\n" +
-                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui...");
+                        "Quero dizer que, número, letras, palavras e tudo que você conhece começou aqui...",TimeUnit.MILLISECONDS);
                 proximo();
-                System.out.println("Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde” ...");
+                Digita("Você pode conhecer como “cidade perdida” ou até “centro da terra”, mas o verdadeiro nome é “Monde” ...",TimeUnit.MILLISECONDS);
                 break;
 
             default:
-                System.out.println("Opção Invalida!");
+                Digita("Opção Invalida!",TimeUnit.MILLISECONDS);
                 break;
         }
 
-        System.out.println("Olhe em volta jovem, tudo aqui é feito do mais puro ouro, há algo mais perfeito do que isso? ...");
+        Digita("Olhe em volta jovem, tudo aqui é feito do mais puro ouro, há algo mais perfeito do que isso? ...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("Você diz para Edgar: Que interessante, mas...");
+        Digita("Você diz para Edgar: Que interessante, mas...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("1 - “Centro da terra? Monde? Dá pra explicar melhor?”\n" +
-                "2 - “Ok, Edgar. Então aqui é o centro da criação?”\n");
+        Digita("1 - “Centro da terra? Monde? Dá pra explicar melhor?”\n" +
+                "2 - “Ok, Edgar. Então aqui é o centro da criação?”\n",TimeUnit.MILLISECONDS);
 
         int pergunta3 = menu.nextInt();
 
         switch (pergunta3) {
             case 1, 2:
-                System.out.println("Edgar apenas olhe para você e segue em frente\n" +
-                        "“Relaxa, você vai entender melhor”\n");
+                Digita("Edgar apenas olhe para você e segue em frente\n" +
+                        "“Relaxa, você vai entender melhor”\n",TimeUnit.MILLISECONDS);
                 break;
 
             default:
-                System.out.println("Opção Invalida!");
+                Digita("Opção Invalida!",TimeUnit.MILLISECONDS);
         }
-        System.out.println("Um enorme som ecoa na sala, grandes muros se erguem e revelam diferentes valores.\n" +
-                "'Edgar: “Bom aqui está outro desafio para você...'");
+        Digita("Um enorme som ecoa na sala, grandes muros se erguem e revelam diferentes valores.\n" +
+                "'Edgar: “Bom aqui está outro desafio para você...'",TimeUnit.MILLISECONDS);
         proximo();
 
         // DESAFIO 2
-        System.out.println("Saindo do grande salão vc percebe que as paredes estão diferentes. o que antes eram paredes rochosas, apertadas e escuras,\n" +
-                " pouco a pouco tornam-se paredes feitas de uma rocha branca, que lembra muito mármore...");
+        Digita("Saindo do grande salão vc percebe que as paredes estão diferentes. o que antes eram paredes rochosas, apertadas e escuras,\n" +
+                " pouco a pouco tornam-se paredes feitas de uma rocha branca, que lembra muito mármore...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("O corredor começa a se tornar mais uniforme, não há mais tantos buracos no chão,\n" +
+        Digita("O corredor começa a se tornar mais uniforme, não há mais tantos buracos no chão,\n" +
                 " as paredes se mantêm com um toque delicado de mármore.\n" +
-                "Caminhando mais e mais, com o que parece ser um corredor sem fim, logo a frente um feixe de luz se forma...");
+                "Caminhando mais e mais, com o que parece ser um corredor sem fim, logo a frente um feixe de luz se forma...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("Qual ação devo tomar...");
+        Digita("Qual ação devo tomar...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("1 - Correr em direção a luz\n" +
+        Digita("1 - Correr em direção a luz\n" +
                 "2 - Continuar andando\n" +
-                "3 - parar e analisar o local");
+                "3 - parar e analisar o local",TimeUnit.MILLISECONDS);
 
         int pergunta4 = menu.nextInt();
 
         switch (pergunta4) {
             case 1:
-                System.out.println("Ao correr em direção a luz, acreditando ser a saída o jogador acaba tropeçando em um fio que abre um alçapão\n" +
-                        " você começa a descer o que parece ser propositalmente um escorregador, ao chegar no final você se sente em uma espécie de colchão d´água.");
+                Digita("Ao correr em direção a luz, acreditando ser a saída o jogador acaba tropeçando em um fio que abre um alçapão\n" +
+                        " você começa a descer o que parece ser propositalmente um escorregador, ao chegar no final você se sente em uma espécie de colchão d´água.",TimeUnit.MILLISECONDS);
                 break;
             case 2:
-                System.out.println("Ao continuar andando em direção a luz, chegando perto desse feixe de luz você se descuida um pouco,\n" +
+                Digita("Ao continuar andando em direção a luz, chegando perto desse feixe de luz você se descuida um pouco,\n" +
                         " e o que aparenta ser uma parte do piso é uma placa, ao pisar nessa placa o chão se abre e você começa a descer\n" +
-                        " o que parece ser propositalmente um escorregador, ao chegar no final vc se sente em uma espécie de colchão d´água.");
+                        " o que parece ser propositalmente um escorregador, ao chegar no final vc se sente em uma espécie de colchão d´água.",TimeUnit.MILLISECONDS);
                 break;
             case 3:
-                System.out.println("Analisando em volta você percebe uma espécie de chão falso, entende que se pisar ali algo irá acontecer.\n" +
-                        " O feixe de luz aparenta vir de um buraco na parede que não leva a saída e sim a outro lugar");
+                Digita("Analisando em volta você percebe uma espécie de chão falso, entende que se pisar ali algo irá acontecer.\n" +
+                        " O feixe de luz aparenta vir de um buraco na parede que não leva a saída e sim a outro lugar",TimeUnit.MILLISECONDS);
                 break;
             default:
-                System.out.println("Resposta invalida.");
+                Digita("Resposta invalida.",TimeUnit.MILLISECONDS);
                 break;
         }
         if (pergunta4 == 3) {
-            System.out.println("chegando nesse outro lugar, você terá duas opções: ");
-            System.out.println("1- tentar contornar o chão falso\n" +
-                    "2- Procurar outro jeito.");
+            Digita("chegando nesse outro lugar, você terá duas opções: ",TimeUnit.MILLISECONDS);
+            Digita("1- tentar contornar o chão falso\n" +
+                    "2- Procurar outro jeito.",TimeUnit.MILLISECONDS);
 
             int respOp3 = menu.nextInt();
 
             switch (respOp3) {
                 case 1:
-                    System.out.println("Você consegue contornar o chão falso e chegar até o buraco na parede, olhando o que vem através dele\n" +
-                            " não consegue entender direito o que acontece ali, alguns vultos passam rapidamente e ofuscam seu entendimento.");
+                    Digita("Você consegue contornar o chão falso e chegar até o buraco na parede, olhando o que vem através dele\n" +
+                            " não consegue entender direito o que acontece ali, alguns vultos passam rapidamente e ofuscam seu entendimento.",TimeUnit.MILLISECONDS);
                     break;
 
                 case 2:
-                    System.out.println("Olhando em volta novamente, apenas vê o caminho no qual vc veio e paredes de mármore sem nada diferente.");
+                    Digita("Olhando em volta novamente, apenas vê o caminho no qual vc veio e paredes de mármore sem nada diferente.",TimeUnit.MILLISECONDS);
                     break;
 
                 default:
-                    System.out.println("Opção Invalida.");
+                    Digita("Opção Invalida.",TimeUnit.MILLISECONDS);
                     break;
             }
         }
 
         do {
-            System.out.println("Sem saber o que fazer, terá duas opções:");
+            Digita("Sem saber o que fazer, terá duas opções:",TimeUnit.MILLISECONDS);
             proximo();
-            System.out.println("1- Entrar no chão falso\n" +
-                    "2- Perguntar a Edgar o que fazer");
+            Digita("1- Entrar no chão falso\n" +
+                    "2- Perguntar a Edgar o que fazer",TimeUnit.MILLISECONDS);
             resp2op3 = menu.nextInt();
 
             switch (resp2op3) {
                 case 1:
-                    System.out.println("Ao pisar nessa placa o chão se abre e você começa a descer\n" +
-                            " o que parece ser propositalmente um escorregador, ao chegar no final vc se sente em uma espécie de colchão d´agua.");
+                    Digita("Ao pisar nessa placa o chão se abre e você começa a descer\n" +
+                            " o que parece ser propositalmente um escorregador, ao chegar no final vc se sente em uma espécie de colchão d´agua.",TimeUnit.MILLISECONDS);
                     break;
 
                 case 2:
-                    System.out.println("Olá jovem, eu não sei exatamente se posso te dizer o que fazer, mas vamos, tenha coragem.");
+                    Digita("Olá jovem, eu não sei exatamente se posso te dizer o que fazer, mas vamos, tenha coragem.",TimeUnit.MILLISECONDS);
                     break;
 
                 default:
-                    System.out.println("Opção Invalida.");
+                    Digita("Opção Invalida.",TimeUnit.MILLISECONDS);
                     break;
             }
         } while (resp2op3 != 1);
 
-        System.out.println("Enquanto está deitado no colchão d'água, uma mensagem misteriosa aparece em uma placa próxima:");
-        System.out.println("Para avançar, resolva o seguinte polinômio: ...");
+        Digita("Enquanto está deitado no colchão d'água, uma mensagem misteriosa aparece em uma placa próxima:",TimeUnit.MILLISECONDS);
+        Digita("Para avançar, resolva o seguinte polinômio: ...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("4x³ - 2x² + 5x - 3");
+        Digita("4x³ - 2x² + 5x - 3",TimeUnit.MILLISECONDS);
 
         do {
-            System.out.println("Caso a resposta esteja correta, a parede em frente se abrirá, dando passagem para que você possa seguir em frente...");
+            Digita("Caso a resposta esteja correta, a parede em frente se abrirá, dando passagem para que você possa seguir em frente...",TimeUnit.MILLISECONDS);
             proximo();
-            System.out.println("1)  2x³ + 3x² - 2x - 1\n" +
+            Digita("1)  2x³ + 3x² - 2x - 1\n" +
                     "2)  4x³ - x² + 5x - 3\n" +
                     "3)  4x³ - 2x² + 5x + 3\n" +
-                    "4) Dica");
+                    "4) Dica",TimeUnit.MILLISECONDS);
 
             escolhaDesafio2 = menu.nextInt();
 
             switch (escolhaDesafio2) {
                 case 1:
-                    System.out.println("Infelizmente, a resposta está incorreta. O colchão d'água parece ficar mais agitado, mas nada acontece...");
+                    Digita("Infelizmente, a resposta está incorreta. O colchão d'água parece ficar mais agitado, mas nada acontece...",TimeUnit.MILLISECONDS);
                     proximo();
                     break;
                 case 2:
-                    System.out.println("Parabéns! Você resolveu o desafio. A parede se abre, revelando um novo caminho...");
+                    Digita("Parabéns! Você resolveu o desafio. A parede se abre, revelando um novo caminho...",TimeUnit.MILLISECONDS);
                     proximo();
                     break;
                 case 3:
-                    System.out.println("Infelizmente, a resposta está incorreta. O colchão d'água parece ficar mais agitado, mas nada acontece...");
+                    Digita("Infelizmente, a resposta está incorreta. O colchão d'água parece ficar mais agitado, mas nada acontece...",TimeUnit.MILLISECONDS);
                     proximo();
                     break;
                 case 4:
-                    System.out.println("Considere agrupar termos e aplicar fatoração por grupos para simplificar o polinômio ");
+                    Digita("Considere agrupar termos e aplicar fatoração por grupos para simplificar o polinômio ",TimeUnit.MILLISECONDS);
                     break;
                 default:
-                    System.out.println("Opção invalida.");
+                    Digita("Opção invalida.",TimeUnit.MILLISECONDS);
                     break;
             }
         } while (escolhaDesafio2 != 2);
 
 
-        System.out.println("Ao sair do colchão e atravessar o muro que se abriu em sua frente, seus olhos doem com o intenso brilho que é mostrado...\n" +
-                " Diante dos seus olhos vc se depara com um “novo mundo”...");
+        Digita("Ao sair do colchão e atravessar o muro que se abriu em sua frente, seus olhos doem com o intenso brilho que é mostrado...\n" +
+                " Diante dos seus olhos vc se depara com um “novo mundo”...",TimeUnit.MILLISECONDS);
         proximo();
-        System.out.println("Seres místicos voam sobre sua cabeça, elfos brincam na cidade\n" +
-                " e o que parece ser um enorme castelo está acentuado no meio disso tudo, emitindo uma intensa luz.");
+        Digita("Seres místicos voam sobre sua cabeça, elfos brincam na cidade\n" +
+                " e o que parece ser um enorme castelo está acentuado no meio disso tudo, emitindo uma intensa luz.",TimeUnit.MILLISECONDS);
+
 
 
         capitulo3(nome);
