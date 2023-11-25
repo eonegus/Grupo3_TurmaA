@@ -563,7 +563,7 @@ public class Main {
         capitulo2(nome);
     }
 
-    public static void escolhaEsq(String nome) {
+    public static void escolhaEsq(String nome) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         byte escolha4;
         byte dica;
