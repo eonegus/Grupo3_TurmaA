@@ -134,65 +134,65 @@ public class Main {
     public static void capitulo1(String nome) throws InterruptedException {
         //a Função já está recebendo o nome pré estabelecido
         Scanner scanner = new Scanner(System.in);
-        Digita("Bem vindo \n" + nome,TimeUnit.MILLISECONDS);
+        Digita("Bem vindo(a) \n",TimeUnit.MILLISECONDS);
         byte escolha;
         byte escolha2;
         byte escolha3;
-        byte escolha4;
 
-        System.out.println("\nParis, França \nEsse é o local que você está! Seu destino? As catacumbas da cidade…\n");
-        System.out.println("Diversas pessoas caminham pela cidade alegremente, de forma comum,\ngporém duas pessoas em específico chamam sua atenção");
+        //inicio da nossa história
+        Digita("\nParis, França \nEsse é o local que você está! Seu destino? As catacumbas da cidade…\n", TimeUnit.MILLISECONDS);
+        System.out.println("Diversas pessoas caminham pela cidade alegremente, de forma comum,\nporém duas pessoas em específico chamam sua atenção");
         System.out.println("Eles aparentam ser pesquisadores, andando com grandes bolsas e ferramentas");
-        System.out.println("Você chega perto e decide falar com eles");
+        Digita("Você chega perto e decide falar com eles...", TimeUnit.MILLISECONDS);
         proximo();
         System.out.println("\n\nEscolha o que você deseja perguntar");
         System.out.println("\n\n1- Olá, por acaso vocês poderiam me ajudar?" );
         System.out.println("\n2- Ei. É… Eu gostaria de perguntar uma coisa.\n ");
-        escolha = entrada.nextByte();
+        escolha = scanner.nextByte();
         proximo();
 
 
-        switch (escolha) {
-            case 1:
-                break;
-            case 2:
-                break;
-            default:
-                System.out.println("\nEscolha uma opção válida!\n\n");
-                break;
-        }
-        proximo();
+        do {
+            switch (escolha) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    System.out.println("\nEscolha uma opção válida!\n\n");
+            }
+        }while(escolha != 1 && escolha != 2);
 
-        System.out.println("\n\n -------- Apresentando os Personagens -------- \n\n");
+        System.out.println("\n\n -------- Apresentando os Personagens -------- \n");
         System.out.println("\n- Osmar, é um homem negro que possui\n cabelos encaracolados e grisalhos. Parece ter por volta de 50 anos. \n Sua característica mais chamativa certamente é sua altura,\n que parece chegar facilmente aos 1.9O. de altura\n Osmar tem um grande número de cicatrizes pelo corpo, \n parece já ter passado por muito na vida.\n");
         System.out.println("\nJunto dele tem uma mulher presente \n- Mika é uma  branca de cabelos cacheados e pretos,\n aparenta estar na casa dos 40 anos. E apesar de ser baixinha,\n Mika é uma mulher centrada e com muitas capacidades de exploração.\n Todos esses anos em que vivenciou suas aventuras, fizeram a \n ficar muito forte e atenta a todos os sinais de perigo ao seu redor.");
-        System.out.println("\n-------- Fim das Apresentações --------\n");
+        System.out.println("\n\n-------- Fim das Apresentações --------");
         proximo();
 
-        System.out.println("\n\nOsmar olha para você e diz...");
+        System.out.println("\nOsmar olha para você e diz...");
         System.out.println("\nClaro que sim, aliás, sou Osmar e essa minha companheira, Mika.\nEla sorri de forma amigável.\n Me diga o que precisa?\n");
 
 
-        System.out.println("\n\nEsoclha uma das alternativas:\n");
-        System.out.println("\n\n1- Eu gostaria de ir até as catacumbas, sabe como chegar?");
+        System.out.println("\n\nEsoclha uma das alternativas:");
+        System.out.println("\n\n1- Eu gostaria de ir até as catacumbas,sabe como chegar?");
         System.out.println("\n2- Quero conhecer os túneis, poderiam me mostrar a entrada?\n ");
 
         do {
-            escolha2 = entrada.nextByte();
+            escolha2 = scanner.nextByte();
             switch (escolha2) {
                 case 1:
                     break;
                 case 2:
                     break;
                 default:
+                    System.out.println("Escolha uma opção válida!");
 
             }
         } while (escolha2 != 1 && escolha2 != 2);
 
         proximo();
         System.out.println("\nOsmar responde:\n");
-        System.out.println("\nClaro, te mostro o caminho, mas o resto é contigo. Se quiser, vamos agora\n");
-        System.out.println("\nVocê segue eles.");
+        System.out.println("\nClaro, te mostro o caminho, mas o resto é contigo. Se quiser, vamos agora\nVocê segue eles.");
         System.out.println("\nSeguindo Mika e Osmar, eles te levam a uma antiga ferrovia da cidade, abrem uma porta e dizem:\n");
         System.out.println("\nMika e Osmar: “Bom. Só vamos até aqui. Boa sorte com o que você está procurando.\n");
         System.out.println("\nE antes que você possa falar tchau, eles desaparecem atrás de você.\n");
@@ -205,7 +205,7 @@ public class Main {
         System.out.println("\n 2- OI… quem é?");
         System.out.println("\n 3-Seguir em frente\n");
 
-        escolha3 = entrada.nextByte();
+        escolha3 = scanner.nextByte();
         switch (escolha3){
             case 1:
                 break;
@@ -221,41 +221,22 @@ public class Main {
         System.out.println("\nVocê segue em frente, sua lanterna começa a piscar e sem perceber o\n chão abaixo se abre e você cai de uma altura de +/- 2 metros.\n");
         System.out.println("\nOlhando em volta você apenas vê paredes com algumas aranhas\ne baratas caminhando nela.");
 
-        System.out.println("\nNessa “sala” há dois túneis, um do seu lado direito e o outro do lado esquerdo");
-        System.out.println("\n\nEscolha o túnel");
-        System.out.println("\n D- Túnel da Direita");
-        System.out.println("\n E- Túnel da Esquerda");
+        System.out.println("\nNessa “sala” há dois túnei" +
+                "s, um do seu lado direito e o outro do lado esquerdo");
+
+        System.out.println("Escolha um dos túneis:\n 1- Direita 2- Esquerda");
+
+        int op = scanner.nextInt();
+        do {
+            if(op == 1) {
+                escolhaDir(nome);
+            } else if (op == 2) {
+                escolhaEsq(nome);
+            }
+        }while (op >2);
+            System.out.println("Escolha um valor válido");
 
         proximo();
-        System.out.println("\nAo entrar nessa nova sala, novamente uma voz ecoa\n");
-        System.out.println("\n(?): Aparentemente você já entendeu como funcionam as coisas por aqui,\nacho que já está na hora de nos conhecermos.\n");
-        System.out.println("O pequeno ser olha para o jogador e fala:");
-        System.out.println("\nOlá," + nome + "meu nome é Edgar, sou o elfo responsável por esse lugar\ndevo dizer que você veio para em um lugar bem diferente…" + "PORÉM como eu sou um ajudante, irei te auxiliar com os desafios para sair daqui!”\n");
-
-        System.out.println("Escolha uma das opções:");
-        System.out.println("\n1- Perdão… o que você é?\n");
-        System.out.println("\n2- Tá.. Ajudar com o que exatamente?");
-        System.out.println("\n3- Elfo? Isso não existe");
-
-        escolha4 = entrada.nextByte();
-        //respostas do edgar:
-        switch (escolha4){
-            case 1:
-                System.out.println("1: Orás, sou Edgar um elfo ajudante. Como você entrou aqui eu serei o responsável para que você saia, em segurança.\n");
-                break;
-            case 2:
-                System.out.println("2: Bom, já que você invadiu aqui eu sou responsável por garantir que você saia, em segurança.\n");
-                break;
-            case 3:
-                System.out.println("3: Ei… Isso ofendeu. Eu sou o Elfo ajudante e responsável por garantir que você saia, em segurança.\n");
-                break;
-            default:
-                System.out.println("\nEscolha uma opção válida!\n\n");
-                break;
-        }
-        capitulo2(nome);
-    }
-        capitulo2(nome);
     }
 
     public static void capitulo2(String nome) {
@@ -531,14 +512,150 @@ public class Main {
         System.out.println(nome + " Olá");
     }
 
-    public static void escolhaDir() {
+    public static void escolhaDir(String nome) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
+        byte escolha4;
 
+        System.out.println("\n\nSeguindo o túnel da direita você vê que as paredes começam a mudar\n pouco a pouco, diversos símbolos vão aparecendo\n");
+        System.out.println("\nMais a frente você se depara com uma enorme sala, cheia de vasos e\n esculturas de diferentes tamanhos e formas.\nAlguns vasos específicos contém grandes números desenhados neles (1; 8; 1.)");
+        System.out.println("\nDo outro lado da sala há um portão com uma espécie de porteiro com\n senha pedindo três números. Ao lado desse porteiro há um papel com \numa frase escrita\n ");
+        System.out.println("\nPara passar pense em um valor menor que 120 e maior que 110\n");
+
+        System.out.print("Digite a sua resposta: ");
+        String respostaUsuario = scanner.nextLine();
+
+        //Resposta correta
+        String respostaCorreta = "118";
+
+        if (respostaUsuario.equals(respostaCorreta)) {
+            System.out.println("Ótimo! Você conseguiu!!");
+        } else {
+            System.out.println("Resposta errada.");
+        }
+
+        System.out.println("\nAo entrar nessa nova sala, novamente uma voz ecoa\n");
+        System.out.println("\n(?): Aparentemente você já entendeu como funcionam as coisas por aqui,\nacho que já está na hora de nos conhecermos.\n");
+        System.out.println("O pequeno ser olha para o jogador e fala:");
+        System.out.println("\nOlá," + nome + "meu nome é Edgar, sou o elfo responsável por esse lugar\ndevo dizer que você veio para em um lugar bem diferente…" + "PORÉM como eu sou um ajudante, irei te auxiliar com os desafios para sair daqui!”\n");
+
+        System.out.println("Escolha uma das opções:");
+        System.out.println("\n1- Perdão… o que você é?\n");
+        System.out.println("\n2- Tá.. Ajudar com o que exatamente?");
+        System.out.println("\n3- Elfo? Isso não existe");
+
+        escolha4 = scanner.nextByte();
+        //respostas do edgar:
+        switch (escolha4){
+            case 1:
+                System.out.println("1: Orás, sou Edgar um elfo ajudante. Como você entrou aqui eu serei o responsável para que você saia, em segurança.\n");
+                break;
+            case 2:
+                System.out.println("2: Bom, já que você invadiu aqui eu sou responsável por garantir que você saia, em segurança.\n");
+                break;
+            case 3:
+                System.out.println("3: Ei… Isso ofendeu. Eu sou o Elfo ajudante e responsável por garantir que você saia, em segurança.\n");
+                break;
+            default:
+                System.out.println("\nEscolha uma opção válida!\n\n");
+                break;
+        }
+        capitulo2(nome);
     }
 
-    public static void escolhaEsq() {
+    public static void escolhaEsq(String nome) {
         Scanner scanner = new Scanner(System.in);
+        byte escolha4;
+        byte dica;
+        byte op2;
+        System.out.println("Seguindo o túnel da esquerda o jogador vê alguns números romanos escritos\nCXVVII");
+        System.out.println("Porém sem entender, você continua seguindo em frente.\n");
+        System.out.println("Mais pra frente, o jogador se depara com uma sala com diversos desenhos\nna parede, desenhos de pessoas caçando com um estranho pacote de");
+        System.out.println("\npedras em seu bolso, eventualmente o jogador vê uma enorme porta de ");
+        System.out.println("\nferro com algo estranho que não deveria estar ali, um sistema para colocar a senha.\n");
+        System.out.println("\nCom um certo receio, mas confiando no número romano que havia visto ");
+        System.out.println("\nanteriormente (CXVVII = 118), o jogador, tenso e esperançoso, digita os ");
+        System.out.println("\nnúmeros romanos na porta, que começa a se abrir lentamente.");
 
+
+        System.out.println("\nCom alívio ele avança, determinado a enfrentar o próxmo desafio em sua jornada.\n");
+        System.out.println("\nApós digitar a senha o jogador se vê em uma outra sala.\n");
+        System.out.println("\nAo entrar nessa nova sala, novamente uma voz ecoa\n");
+        System.out.println("\n(?): Aparentemente você já entendeu como funcionam as coisas por aqui,\nacho que já está na hora de nos conhecermos.\n");
+        System.out.println("O pequeno ser olha para o jogador e fala:");
+        System.out.println("\nOlá," + nome + "meu nome é Edgar, sou o elfo responsável por esse lugar\ndevo dizer que você veio para em um lugar bem diferente…" + "PORÉM como eu sou um ajudante, irei te auxiliar com os desafios para sair daqui!”\n");
+
+        System.out.println("Escolha uma das opções:");
+        System.out.println("\n1- Perdão… o que você é?\n");
+        System.out.println("\n2- Tá.. Ajudar com o que exatamente?");
+        System.out.println("\n3- Elfo? Isso não existe");
+
+        escolha4 = scanner.nextByte();
+        //respostas do edgar:
+        switch (escolha4){
+            case 1:
+                System.out.println("Orás, sou Edgar um elfo ajudante. Como você entrou aqui eu serei o responsável para que você saia, em segurança.\n");
+                break;
+            case 2:
+                System.out.println("Bom, já que você invadiu aqui eu sou responsável por garantir que você saia, em segurança.\n");
+                break;
+            case 3:
+                System.out.println("Ei… Isso ofendeu. Eu sou o Elfo ajudante e responsável por garantir que você saia, em segurança.\n");
+                break;
+            default:
+                System.out.println("\nEscolha uma opção válida!\n\n");
+                break;
+        }
+
+
+        System.out.println("Escolha uma das opções abaixo: ");
+        System.out.println("1- E como eu saio daqui?\n");
+        System.out.println("2- Entendi Edgar. Você sabe me informar sobre um tesouro escondido por aqui?");
+        System.out.println("3- Em segurança? O que isso significa?");
+        op2= scanner.nextByte();
+
+        do {
+
+            switch (op2){
+                case 1:
+                    System.out.println("Edgar: Primeiramente, você precisa saber algumas contas de matemática,\nvou te explicar o que você deve fazer ao encontrar a resposta.\n");
+                    System.out.println("Sempre que você já souber a resposta de algo você deve apertar 9 e “falar” a resposta da questão.\n");
+                    break;
+                case 2:
+                    System.out.println("Ah tá, você é só mais um a procura de conhecimento. Deixa eu te contar que conhecimento não se acha através de tesouros. Ao longo do túnel você vai entender.\n");
+                    break;
+                case 3:
+                    System.out.println("Significa que você está vivo agora, mas eu não prometo que no final não estará.\n");
+                    break;
+            }
+        }while(op2 != 1 && op2 != 2 && op2 !=3);
+
+        System.out.println("Aperte 1 para dica");
+        dica = scanner.nextByte();
+        switch (dica){
+            case 1:
+                System.out.println("dica: Pense que, se 1 + 1 é igual a 2, logo X + X é igual a 2X.\n");
+                break;
+            default:
+                System.out.println("Escolha inválida! Escolha o número certo.");
+        }
+        System.out.println("Entendeu? Vamos a primeira pergunta: ");
+        System.out.print("Quanto é X + X? ");
+        String respostaUsuario = scanner.next();
+
+        String respostaCorreta = "2x";
+        // Verifica se a resposta do usuário está correta
+        if (respostaUsuario.equals(respostaCorreta)) {
+            System.out.println("Parabéns! Sua resposta está correta.");
+        } else {
+            System.out.println("Ops! Sua resposta está incorreta. A resposta correta é: " + respostaCorreta);
+        }
+
+        // Fecha o scanner para evitar vazamentos de recursos
+        scanner.close();
+
+        System.out.println("Após seguir seu caminho Edgar te leva para outra sala...\n");
+        proximo();
+        capitulo2(nome);
     }
 
     public static void creditos() throws InterruptedException {
@@ -583,6 +700,5 @@ public class Main {
         Digita("Aperte ENTER para começar o jogo\n",TimeUnit.MILLISECONDS);
         proximo();
         menu();
-
     }
 }
