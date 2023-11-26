@@ -1,12 +1,13 @@
 import jdk.dynalink.NamedOperation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    static int temp = 40;
+    static int temp = 10;
     static int acertos = 0; // Variavel global de acertos
     public static void proximo() {
         //Função que faz o skip com o ENTER
@@ -46,7 +47,7 @@ public class Main {
         int valorRandom = 0;
         digita("Guardião de Pedra: Pode pegar a primeira carta, pequenino.", TimeUnit.MILLISECONDS, temp);
         do {
-            digita("(1) Pegar carta)" +
+            digita("(1) Pegar carta" +
                     "(2) Não pegar carta", TimeUnit.MILLISECONDS, temp);
             System.out.print("Escolha: ");
             resposta = input.nextByte();
@@ -113,40 +114,41 @@ public class Main {
         do {
             //menu
             System.out.println();
-            System.out.println("------------MENU ----------");
-            System.out.println("-                         -");
-            System.out.println("-      1 - Tutorial       -");
-            System.out.println("-      2 -  Jogar         -");
-            System.out.println("-      3 - Créditos       -");
-            System.out.println("-      4 -  Sair          -");
-            System.out.println("-                         -");
-            System.out.println("---------------------------");
+            digita("-------------MENU----------\n",TimeUnit.MILLISECONDS,temp);
+            System.out.print("-                         -\n");
+            digita("-      1 - Tutorial       -\n",TimeUnit.MILLISECONDS,temp);
+            digita("-      2 -  Jogar         -\n",TimeUnit.MILLISECONDS,temp);
+            digita("-      3 - Créditos       -\n",TimeUnit.MILLISECONDS,temp);
+            digita("-      4 -  Sair          -\n",TimeUnit.MILLISECONDS,temp);
+            System.out.print("-                         -\n");
+            digita("---------------------------\n",TimeUnit.MILLISECONDS,temp);
 
-            System.out.println("Escolha uma opção:");
+            digita("Escolha uma opção:", TimeUnit.MILLISECONDS,temp);
             op = scanner.nextInt();
             escolhaMenu(op);
 
         } while (op != 1 && op != 2 && op != 3 && op != 4);
     }
 
+
     public static void escolhaMenu(int op) throws InterruptedException {
         //Função que leva até as opções escolhidas
         switch (op) {
             case 1:
-                System.out.println("Você escolheu: Tutorial");
+                digita("Você escolheu: Tutorial\n",TimeUnit.MILLISECONDS,temp);
                 tutorial();
                 break;
             case 2:
-                System.out.println("Você escolheu: Jogar");
+                digita("Você escolheu: Jogar\n",TimeUnit.MILLISECONDS,temp);
                 jogar();
                 break;
             case 3:
-                System.out.println("Você escolheu: Créditos");
+                digita("Você escolheu: Créditos\n",TimeUnit.MILLISECONDS,temp);
                 creditos();
                 break;
             case 4:
-                System.out.println("Saindo...");
-                System.out.println("Aperte ENTER para jogar...");
+                digita("Saindo...\n",TimeUnit.MILLISECONDS,temp);
+                digita("Aperte ENTER para jogar...\n",TimeUnit.MILLISECONDS,temp);
                 proximo();
                 menu();
                 break;
@@ -157,54 +159,55 @@ public class Main {
         //Tutorial do jogo
         int op;
         System.out.println();
-        System.out.println("----------------------------");
-        System.out.println("-        Tutorial          -");
-        System.out.println("----------------------------");
-        System.out.println("\nOlá, investigador, para que você não se sinta perdido nessa aventura" +
-                " vou lhe passar algumas dicas e um breve contexto da história.");
-        System.out.println("Você é um pesquisador a procura de um tesouro perdido. Seu destino são " +
-                " os túneis subterrâneos da frança.\n");
-        System.out.println("----------------------------");
-        System.out.println("-          DICAS           -");
-        System.out.println("----------------------------");
+        System.out.println("----------------------------\n");
+        System.out.println("-        Tutorial          -\n");
+        digita            ("-----------------------------\n",TimeUnit.MILLISECONDS,temp);
+        digita("\nOlá, investigador, para que você não se sinta perdido nessa aventura\n" +
+                "vou lhe passar algumas dicas e um breve contexto da história.\n",TimeUnit.MILLISECONDS,temp);
+        digita("Você é um pesquisador a procura de um tesouro perdido. Seu destino são " +
+                " os túneis subterrâneos da frança.\n",TimeUnit.MILLISECONDS,temp);
+        digita("----------------------------\n",TimeUnit.MILLISECONDS,temp);
+        digita("-          DICAS           -\n",TimeUnit.MILLISECONDS,temp);
+        digita("----------------------------\n",TimeUnit.MILLISECONDS,temp);
         do {
             //Laço para que o jogador entenda como funciona a seleção de opções
             Scanner scanner = new Scanner(System.in);
-            System.out.println("\nDica 1: Para escolher suas ações digite o valor " +
-                    "correspondente a uma das opções.\n");
-            System.out.println("1 - Próxima dica\n2 - explicar novamente\n");
-            System.out.print("Escolha: ");
+            digita("\nDica 1: Para escolher suas ações digite o valor " +
+                    "correspondente as opções dadas.\n",TimeUnit.MILLISECONDS,temp);
+            digita("1 - Próxima dica\n2 - explicar novamente\n",TimeUnit.MILLISECONDS,temp);
+            System.out.print("Escolha: \n");
             op = scanner.nextInt();
             if (op != 1 && op != 2) {
-                System.out.println("Digite um valor válido!");
+                digita("Digite um valor válido!\n",TimeUnit.MILLISECONDS,temp);
             }
         } while (op != 1);
-        System.out.println("\nDica 2: Sempre que as reticências (...) aparecerem você deve pressionar ENTER" +
-                " para continuar...");
+        digita("\nDica 2: Sempre que as reticências (...) aparecerem você deve pressionar ENTER" +
+                " para continuar...\n",TimeUnit.MILLISECONDS,temp);
         //fazer com que o jogador utilize e entenda a função
         proximo();
-        System.out.println("Boa, já está entendendo!");
+        digita("Boa, já está entendendo!\n",TimeUnit.MILLISECONDS,temp);
         System.out.println();
-        System.out.println("Os desafios que você encontrará no caminho são sobre matematica, sendo " +
+        digita("Os desafios que você encontrará no caminho são sobre matematica, sendo " +
                 " alguns deles questões de múltipla escolha,\nenquanto outros você deverá selecionar valores" +
-                " sorteados aleatoriamente, e escrever o total.");
-        System.out.println("Para selecionar a opção serão dados alternativas de 1 a 4...");
+                " sorteados aleatoriamente, e escrever o total.\n",TimeUnit.MILLISECONDS,temp);
+        digita("Para selecionar a opção serão dados alternativas de 1 a 4...\n",TimeUnit.MILLISECONDS,temp);
         //fazer com que o jogador utilize e entenda a função
         proximo();
-        System.out.println("Para cada teste, você terá 2 tentativas para acertar.");
-        System.out.println("Caso acerte, o jogo seguirá normalmente. Em caso de falha" +
-                "será mostrado dado o aviso 'Você falhou!', junto a resposta do desafio...");
+        digita("Para cada teste, você terá 2 tentativas para acertar.\n",TimeUnit.MILLISECONDS,temp);
+        digita("Caso acerte, o jogo seguirá normalmente. Em caso de falha\n" +
+                "será mostrado o aviso 'Você falhou!', junto a resposta do desafio...\n",TimeUnit.MILLISECONDS,temp);
         //fazer com que o jogador utilize e entenda a função
         proximo();
-        System.out.println("Muito bem, você terminou o tutorial, daqui pra frente é por sua conta!");
-        System.out.println("Lembre-se, caso precise você sempre terá acesso ao tutorial pelo menu inicial.");
-        System.out.println("Bem investigador, agora que você já sabe como as coisas funcionam por aqui, " +
-                "venha conhecer um novo ambiente!");
-        System.out.println("--------APERTE ENTER--------");
+        digita("Muito bem, você terminou o tutorial, daqui pra frente é por sua conta!\n",TimeUnit.MILLISECONDS,temp);
+        digita("Lembre-se, caso precise você sempre terá acesso ao tutorial pelo menu inicial.\n",TimeUnit.MILLISECONDS,temp);
+        digita("Então caro investigador, agora que você já sabe como as coisas funcionam por aqui, " +
+                "venha conhecer um novo mundo!\n",TimeUnit.MILLISECONDS,temp);
+        digita("--------APERTE ENTER--------\n",TimeUnit.MILLISECONDS,temp);
         //última demonstração da função
         proximo();
         menu();
     }
+
 
     public static void jogar() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
@@ -532,8 +535,7 @@ public class Main {
                     while (true) {
                         if (respDesafio2 == 9) {
                             digita(nome + ": A RESPOSTA É " + respDesafio2 + " !!!", TimeUnit.MILLISECONDS, temp);
-                            digita("Narrador: Nada acontece, a porta não se mexe nem mesmo um centímetro."
-                                    , TimeUnit.MILLISECONDS, temp);
+                            digita("Narrador: Nada acontece, a porta não se mexe nem mesmo um centímetro.", TimeUnit.MILLISECONDS, temp);
                             digita("Edgar: ...", TimeUnit.MILLISECONDS, temp);
                             proximo();
                             digita("Edgar: Hã...\n", TimeUnit.MILLISECONDS, temp);
@@ -649,9 +651,309 @@ public class Main {
         capitulo4(nome);
     }
 
-    public static void capitulo4(String nome) {
+    public static void capitulo4(String nome) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(nome + " Olá");
+
+        //Primeiro momento do capitulo 4
+        digita("    O criador se revela um ser imponente, misterioso e tanto quanto majestoso\n",TimeUnit.MILLISECONDS, temp);
+        digita("ele usa um sobretudo preto e uma espécie de máscara que revela apenas seus olhos que brilham em dourado...",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        System.out.println("");
+        digita("Criador:\n - Pedroso, Edgar... Me expliquem agora o motivo desse ser estar na minha sala!...",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("Edgar:\n - C-criador... até onde sei seu nome é " + nome + ", não sei exatamente como conseguiu entrar aqui, mas apenas quer voltar\n" +
+                "para o povo lá de cima. Passamos por vários desafios para chegar até aqui, até ganhou do Pedroso...",TimeUnit.MILLISECONDS, temp);
+        System.out.println("");
+        proximo();
+        digita("O criador olha para o gigante de pedra que faz um sinal de confirmação com a cabeça.",TimeUnit.MILLISECONDS, temp);
+        //Sout utilizado para espaçãr os elementos
+        System.out.println("");
+        System.out.println("");
+        digita("Criador:\n - Muito bem, " + nome + ", já que você chegou até aqui, vou te explicar melhor o que está acontecendo.\n",TimeUnit.MILLISECONDS, temp);
+        digita("Você está no coração do monde, o ínicio de tudo.\n",TimeUnit.MILLISECONDS, temp);
+        digita("Eu sou responsável por criar, moldar e cuidar de todo o conhecimento, formulás de cálculos e todas as estruturas que envolver o universo...\n",TimeUnit.MILLISECONDS, temp);
+        proximo();
+
+        int a1;
+        // primeira escolha do capitulo 4
+        do {
+            digita("1 - 'Ok, eu já sei, tudo é perfeito, bonito e completo. Quais são as formas de sair daqui?'\n", TimeUnit.MILLISECONDS, temp);
+            digita("2 - 'Entendi, criador, apenas gostaria de saber mais, como você é? Tipo, como o Edgar existe, o motivo de eu estar aqui...\n", TimeUnit.MILLISECONDS, temp);
+
+            System.out.print("R: ");
+            a1 = scanner.nextInt();
+            //não deixa digitar um valor diferente do pedido
+            if (a1 != 1 && a1 != 2) {
+                System.out.println("\nValor inválido.\n");
+            }
+        } while (a1 != 1 && a1 != 2);
+
+        switch (a1) {
+            case 1 -> {
+                System.out.println("");
+                digita("Criador:\n- Bom, para que você saia, obviamente terá que passar por mais um desafio, nesse caso, será especialmente" +
+                        " feito por mim!...\n", TimeUnit.MILLISECONDS, temp);
+                proximo();
+                break;
+            }
+            case 2 -> {
+                System.out.println("");
+                digita("Criador:\n- Calma jovem, com tantas perguntas você vai acabar dividindo por zero...\n", TimeUnit.MILLISECONDS, temp);
+                System.out.println("[Pedroso e Edgar riem]");
+                digita("Criador:\n- Vamos, o que você deseja saber?\n", TimeUnit.MILLISECONDS, temp);
+                break;
+            }
+        }
+        if (a1 == 1) {
+            digita("'Claro, qual é o desafio?'\n", TimeUnit.MILLISECONDS, temp);
+            System.out.println("");
+            a1(nome);
+        } else if (a1 == 2) {
+            digita("\n'Quero saber um pouco mais sobre aqui'\n", TimeUnit.MILLISECONDS, temp);
+        }
+        digita("Criador:\n- Bom, como você já sabe aqui é o monde, onde tudo foi criado",TimeUnit.MILLISECONDS, temp);
+        System.out.println("");
+        digita("Em um piscar de olhos o criador muda sua forma, assumindo uma aparência indentica a sua...",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("\nCriador:\n- Viu? " + nome + " eu posso ser você, Edgar ou até o Pedroso.\n" +
+                " Eu nasci aqui e toda minha vida se resumiu em deixar tudo em perfeita ordem...",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("- Não esqueça " + nome + " para tudo há diversas opções, desde que você entrou aqui seu único desejo é encontrar um tesouro e depois sair,\n",TimeUnit.MILLISECONDS, temp);
+        digita("mas você já considerou ficar por aqui e quem sabe achar seu querido tesouro?...",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("- Vai do seu coração e coragem.\n" +
+                " Agora, vamos jogar!...\n",TimeUnit.MILLISECONDS, temp);
+        proximo();
+
+        int resp2;
+        //segunda escolha do jogo
+        do {
+            digita("1-'Claro, vamos",TimeUnit.MILLISECONDS, temp);
+            resp2 = scanner.nextInt();
+
+            if (resp2 != 1 ){
+                System.out.println("Valor inválido.");
+            }
+        }while (resp2 != 1);
+        desafioFinal(nome);
+    }
+
+    public static void a1(String nome) throws InterruptedException {
+        //começa a explicação do desafio
+        Scanner scanner = new Scanner(System.in);
+        int resp;
+        do {
+            digita("Criador:\n- O desafio consiste no seguinte. Vou te passar 2 valores aleatorios, você deve escolher um desses valores" +
+                    " depois disso será minha vez...", TimeUnit.MILLISECONDS, temp);
+            proximo();
+            digita("Dessa forma vamos gerar um lindo polinomio, responda corretamente e você saíra!...\n", TimeUnit.MILLISECONDS, temp);
+            proximo();
+            digita("Você entendeu?", TimeUnit.MILLISECONDS, temp);
+            System.out.println("");
+            digita("1- Sim\n2- Não\n", TimeUnit.MILLISECONDS, temp);
+            resp = scanner.nextInt();
+
+            if (resp != 1 && resp != 2) {
+                System.out.println("Valor inválido!");
+            }
+        } while (resp != 1);
+        desafioFinal(nome);
+    }
+
+    //inicia o desafio final
+    public static void desafioFinal(String nome) throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        //gera valores aleatorios para a questão
+        int a = random.nextInt(20) + 1;
+        int b = random.nextInt(20) + 1;
+        int c = random.nextInt(20 + 2);
+
+        //informa os valores
+        digita("Foram gerados 2 valores aleatórios:\nA:" + a + "\nB:" + b+"\n",TimeUnit.MILLISECONDS, temp);
+        digita("x^2 - x + C \n",TimeUnit.MILLISECONDS, temp);
+
+        String opcaoEscolhida;
+
+
+        //loop para que o desafio funcione e a escolha seja correta
+        do {
+            digita("\nEscolha qual valor será x^2: (A ou B)\n", TimeUnit.MILLISECONDS, temp);
+            opcaoEscolhida = scanner.nextLine();
+
+            if (!opcaoEscolhida.equalsIgnoreCase("a") && !opcaoEscolhida.equalsIgnoreCase("b")) {
+                digita("Esta opção não é válida!\n", TimeUnit.MILLISECONDS, temp);
+            }
+        } while (!opcaoEscolhida.equalsIgnoreCase("a") && !opcaoEscolhida.equalsIgnoreCase("b"));
+
+        //facilita a escolha utilizando o sistema com "?"
+        String equacaoGerada = (opcaoEscolhida.equalsIgnoreCase("a"))
+                ? a + "x^2 - " + b + "x + " + c
+                : b + "x^2 - " + a + "x + " + c;
+
+        digita("Você formou a seguinte equação... \n" + equacaoGerada, TimeUnit.MILLISECONDS, temp);
+        proximo();
+        //Gera valores aleatorios para o criador
+        int x = random.nextInt(20) + 1;
+        int y = random.nextInt(20) + 1;
+        int z = random.nextInt(20) + 1;
+
+        //informa os valores que o criador pegou
+        digita("\nCriador:\n'Bom, então essa será minha formação!...'\n", TimeUnit.MILLISECONDS, temp);
+        digita("-" + x + "x^2 + " + y + "x + " + z+"\n", TimeUnit.MILLISECONDS, temp);
+        proximo();
+
+        // mostra a forma final da questão se for escolhido a letra A
+        if (opcaoEscolhida.equalsIgnoreCase("a")) {
+            digita("\n" +
+                    "Em sua frente os números flutam e formam seu último desafio!\n" +
+                    a + "x^2 - " + b + "x + " + c + " - " + x + "x^2 + " + y + "x + " + z + "...\n", TimeUnit.MILLISECONDS, temp);
+            proximo();
+        }
+        // mostra a forma final da questão se for escolhido a letra B
+        if (opcaoEscolhida.equalsIgnoreCase("b")) {
+            digita("\n" +
+                    "Em sua frente se forma a seguinte equação!\n" +
+                    b + "x^2 - " + a + "x + " + c + " - " + x + "x^2 + " + y + "x + " + z + "...\n", TimeUnit.MILLISECONDS, temp);
+            proximo();
+        }
+        //Conta final de acordo com letra escolhida
+        String resposta = (opcaoEscolhida.equalsIgnoreCase("a"))
+                ? ((a - x)) + "x^2 " + sinal(-b + y) + " " + Math.abs(-b + y) + "x " + sinal(c + z) + " " + Math.abs(c + z)
+                : ((b - x)) + "x^2 " + sinal(-a + y) + " " + Math.abs(-a + y) + "x " + sinal(c + z) + " " + Math.abs(c + z);
+
+
+        ArrayList<String> opcoesErradas = new ArrayList<>();
+        //contas erradas para fornercer a opção
+        if (opcaoEscolhida.equalsIgnoreCase("a")) {
+            opcoesErradas.add((a - x) + "x^2 " + sinal(b + y) + " " + Math.abs(b + y) + "x " + sinal(c - z) + " " + (c + z));
+            opcoesErradas.add((a - x) + "x^2 " + sinal(b - y) + " " + Math.abs(b - y) + "x " + sinal(c + z) + " " + (c + z));
+        } else {
+            opcoesErradas.add((b - x) + "x^2 " + sinal(a + y) + " " + Math.abs(a + y) + "x " + sinal(c + z) + " " + (c + z));
+            opcoesErradas.add((b - x) + "x^2 " + sinal(a - y) + " " + Math.abs(a - y) + "x " + sinal(c - z) + " " + (c + z));
+        }
+
+        Collections.shuffle(opcoesErradas);
+
+        int tentativas = 0;
+        boolean respostaCorreta = false;
+        //faz com o que jogador escolha a opção de acordo com as opções dadas
+        do {
+            tentativas++;
+            digita("\nEscolha uma opção. Tentativa " + tentativas + ":\n", TimeUnit.MILLISECONDS, temp);
+            digita("A: " + opcoesErradas.get(0)+"\n",TimeUnit.MILLISECONDS, temp);
+            digita("B: " + opcoesErradas.get(1)+"\n",TimeUnit.MILLISECONDS, temp);
+            digita("C: " + resposta+"\n",TimeUnit.MILLISECONDS, temp);
+
+            String resp = scanner.nextLine();
+
+            if (resp.equalsIgnoreCase("c")) {
+                digita("Resposta correta!\n",TimeUnit.MILLISECONDS, temp);
+                respostaCorreta = true;
+            } else {
+                System.out.println("Resposta errada. Tente novamente.");
+            }
+        } while (!respostaCorreta && tentativas < 3);
+        passou(nome);
+
+    }
+    //essa função faz com os sinais sejam colocador de forma correta
+    private static String sinal(int valor) {
+        return (valor >= 0) ? "+" : "-";
+    }
+
+    public static void passou(String nome) throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+        digita("Ao finalizar o desafio com êxito o criador te olha de forma orgulhosa",TimeUnit.MILLISECONDS, temp);
+        System.out.println("");
+        digita("Criador:\n- Você foi bem "+ nome+ ". Demonstrou compreensão e habilidade...\n",TimeUnit.MILLISECONDS, temp);
+        digita("Como eu disse, há sempre a opção de ficar por aqui e a opção de ir.\n",TimeUnit.MILLISECONDS, temp);
+
+        int op;
+
+        do {
+            digita("1 - 'O que muda se eu ficar ou não?'\n",TimeUnit.MILLISECONDS, temp);
+            op = scanner.nextInt();
+
+            if (op != 1){
+                System.out.println("Valor inválido");
+            }
+        }while (op != 1);
+
+        digita("Bom, ficando aqui você terá acesso a conhecimentos diversos, porém se você sair tudo que você viu será completamente apagado\n",TimeUnit.MILLISECONDS, temp);
+        digita("claro, o que você aprendeu será mantido, pois o conhecimento não se pode apagar!...\n",TimeUnit.MILLISECONDS, temp);
+        digita("Me diga, o que deseja?\n",TimeUnit.MILLISECONDS, temp);
+
+        int op2;
+        do{
+            digita("1- 'Eu quero ficar!\n",TimeUnit.MILLISECONDS, temp);
+            digita("2- 'Obrigado por tudo, mas eu prefiro voltar ao meu mundo\n",TimeUnit.MILLISECONDS, temp);
+            op2 = scanner.nextInt();
+
+
+            if (op2 != 1 && op2 != 2){
+                System.out.println("Valor inválido");
+            }
+
+            if (op2 == 1){
+                ficar(nome);
+            }else if (op2 == 2){
+                sair(nome);
+            }
+
+        }while (op2 != 1 && op2 != 2);
+
+    }
+
+    public static void ficar(String nome) throws InterruptedException {
+        digita("Ao escolher ficar os olhos do criador se tornam mais intensos, em um tom de felicidade",TimeUnit.MILLISECONDS, temp);
+        System.out.println("");
+        digita("Criador:\n- Ótima escolha, venha me dê sua mão...\n",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("Ao tocar a mão do criador você sente seu corpo leve, seus olhos se fecham e sua mente divaga em um cenário aconchegante e feliz\n",TimeUnit.MILLISECONDS, temp);
+        digita("Você sente que agora tudo está resolvido, você encontrou o tesouro que procurava...\n",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita(nome + " você acorda de repente em uma cama leve e macia, um chalé de madeira. Ao lado da cama está Edgar\n",TimeUnit.MILLISECONDS, temp);
+        digita("Edgar:\n- Você ficou, que legal. Bem vindo, essa é sua nova casa...\n",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        fim();
+    }
+
+
+    public static void sair(String nome) throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+        digita("Criador:\n- Claro eu entendo\n",TimeUnit.MILLISECONDS, temp);
+        digita("Com um gesto de mão, o criador cria uma portal de luz em sua frente...\n",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("Criador:\n- Continue sua jornada " + nome+ ". Não esqueça, o conhecimento é o tesouro que você procura\n",TimeUnit.MILLISECONDS, temp);
+        System.out.println("");
+        digita("Ao atravessar a passagem você se vê na entrada das catacumbas, ali estão Mika e Osmar\n",TimeUnit.MILLISECONDS, temp);
+        digita("Mika:\n- Ei, "+nome+", encontrou o que queria?...",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("Você sente uma intensa dor de cabeça e um leve flash de memoria 'Conhecimento é o tesouro que você procura\n",TimeUnit.MILLISECONDS, temp);
+
+        int op;
+        do {
+            digita("1- 'Sim, com certeza encontrei!\n",TimeUnit.MILLISECONDS, temp);
+            digita("2 - 'Sim! Conhecimento, era isso desde o começo\n",TimeUnit.MILLISECONDS, temp);
+            op = scanner.nextInt();
+
+            if (op != 1 && op != 2){
+                System.out.println("Valor inválido");
+            }
+        }while (op != 1 && op != 2);
+
+        digita("Mika e Osmar se entreolham, seus olhos dão um livre brilho em dourado\n",TimeUnit.MILLISECONDS, temp);
+        digita("Osmar:\n- Que legal, fico feliz que tenha aprendido, com certeza Edgar sentirá saudades...",TimeUnit.MILLISECONDS, temp);
+        proximo();
+        fim();
+
+
+    }
+
+    public static void fim() throws InterruptedException {
+        digita("Obrigado por jogar, esperamos que tenha gostado",TimeUnit.MILLISECONDS, temp);
     }
 
     public static void escolhaDir() {
