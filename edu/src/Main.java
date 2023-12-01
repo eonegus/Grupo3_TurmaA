@@ -231,12 +231,12 @@ public class Main {
 
 
         digita("\nParis, França \nEsse é o local que você está! Seu destino? As catacumbas da cidade…\n",TimeUnit.MILLISECONDS, temp);
-        digita("Diversas pessoas caminham pela cidade alegremente, de forma comum,\nporém duas pessoas em específico chamam sua atenção", TimeUnit.MILLISECONDS, temp);
+        digita("Diversas pessoas caminham pela cidade alegremente, de forma comum,\nporém duas pessoas em específico chamam sua atenção\n", TimeUnit.MILLISECONDS, temp);
         System.out.println("Eles aparentam ser pesquisadores, andando com grandes bolsas e ferramentas");
         System.out.println("Você chega perto e decide falar com eles");
         proximo();
         System.out.println("\n\nEscolha o que você deseja perguntar");
-        digita("\n\n1- Olá, por acaso vocês poderiam me ajudar?", TimeUnit.MILLISECONDS, temp);
+        digita("\n1- Olá, por acaso vocês poderiam me ajudar?", TimeUnit.MILLISECONDS, temp);
         digita("\n2- Ei. É… Eu gostaria de perguntar uma coisa.\n ", TimeUnit.MILLISECONDS, temp);
         escolha = entrada.nextByte();
         proximo();
@@ -259,11 +259,11 @@ public class Main {
         proximo();
 
         digita("\n\nOsmar olha para você e diz...", TimeUnit.MILLISECONDS, temp);
-        digita("\nClaro que sim, aliás, sou Osmar e essa minha companheira, Mika.\nEla sorri de forma amigável.\n Me diga o que precisa?\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nClaro que sim, aliás, sou Osmar e essa minha companheira, Mika.\nEla sorri de forma amigável.\nMe diga o que precisa?\n", TimeUnit.MILLISECONDS, temp);
 
 
-        System.out.println("\n\nEsoclha uma das alternativas:\n");
-        digita("\n\n1- Eu gostaria de ir até as catacumbas, sabe como chegar?", TimeUnit.MILLISECONDS, temp);
+        System.out.println("\nEsoclha uma das alternativas:");
+        digita("\n1- Eu gostaria de ir até as catacumbas, sabe como chegar?", TimeUnit.MILLISECONDS, temp);
         digita("\n2- Quero conhecer os túneis, poderiam me mostrar a entrada?\n ", TimeUnit.MILLISECONDS, temp);
 
         do {
@@ -279,17 +279,17 @@ public class Main {
         } while (escolha2 != 1 && escolha2 != 2);
 
         proximo();
-        System.out.println("\nOsmar responde:\n");
-        digita("\nClaro, te mostro o caminho, mas o resto é contigo. Se quiser, vamos agora\n", TimeUnit.MILLISECONDS, temp);
-        System.out.println("\nVocê segue eles.");
+        System.out.println("\nOsmar responde:");
+        digita("\nOsmar: Claro, te mostro o caminho, mas o resto é contigo. Se quiser, vamos agora\n", TimeUnit.MILLISECONDS, temp);
+        System.out.println("Você segue eles.");
         digita("\nSeguindo Mika e Osmar, eles te levam a uma antiga ferrovia da cidade, abrem uma porta e dizem:\n", TimeUnit.MILLISECONDS, temp);
-        digita("\nMika e Osmar: “Bom. Só vamos até aqui. Boa sorte com o que você está procurando.\n", TimeUnit.MILLISECONDS, temp);
-        System.out.println("\nE antes que você possa falar tchau, eles desaparecem atrás de você.\n");
-        System.out.println("\nEnquanto você caminha sozinho no escuro apenas com uma lanterna\ne sua bolsa com algumas ferramentas básicas\nvocê escuta alguma voz lhe chamando..." +
+        digita("Mika e Osmar: “Bom. Só vamos até aqui. Boa sorte com o que você está procurando.\n", TimeUnit.MILLISECONDS, temp);
+        System.out.println("E antes que você possa falar tchau, eles desaparecem atrás de você.\n");
+        System.out.println("Enquanto você caminha sozinho no escuro apenas com uma lanterna\ne sua bolsa com algumas ferramentas básicas\nvocê escuta alguma voz lhe chamando..." +
                 "\n");
         proximo();
 
-        digita("\n(?)Olá " + nome + " , o que faz aqui?\n", TimeUnit.MILLISECONDS, temp);
+        digita("\n(?)Olá " + nome + " , o que faz aqui?", TimeUnit.MILLISECONDS, temp);
         digita("\n 1- Olá?", TimeUnit.MILLISECONDS, temp);
         digita("\n 2- OI… quem é?", TimeUnit.MILLISECONDS, temp);
         digita("\n 3-Seguir em frente\n", TimeUnit.MILLISECONDS, temp);
@@ -307,17 +307,17 @@ public class Main {
                 break;
         }
         proximo();
-        System.out.println("\n Você segue em frente, sua lanterna começa a piscar e sem perceber o\n chão abaixo se abre e você cai de uma altura de +/- 2 metros.\n");
-        System.out.println("\nOlhando em volta você apenas vê paredes com algumas aranhas\ne baratas caminhando nela.");
-        digita("\nNessa “sala” há dois túneis, um do seu lado direito e o outro do lado esquerdo", TimeUnit.MILLISECONDS, temp);
+        System.out.println("\nVocê segue em frente, sua lanterna começa a piscar e sem perceber o\nchão abaixo se abre e você cai de uma altura de +/- 2 metros.\n");
+        System.out.println("Olhando em volta você apenas vê paredes com algumas aranhas\ne baratas caminhando nela.");
+        digita("Nessa “sala” há dois túneis, um do seu lado direito e o outro do lado esquerdo", TimeUnit.MILLISECONDS, temp);
         digita("\n\nEscolha o túnel",TimeUnit.MILLISECONDS, temp);
         digita("\n 1- Túnel da Direita", TimeUnit.MILLISECONDS, temp);
         digita("\n 2- Túnel da Esquerda", TimeUnit.MILLISECONDS, temp);
         int op = entrada.nextInt();
         if(op == 1) {
-            escolhaEsq(nome);
-        }else if(op == 2){
             escolhaDir(nome);
+        }else if(op == 2){
+            escolhaEsq(nome);
         }
     }
 
@@ -1098,16 +1098,16 @@ public class Main {
         byte dica;
         byte op2;
 
-        digita("\n\nSeguindo o túnel da direita você vê que as paredes começam a mudar\n pouco a pouco, diversos símbolos vão aparecendo\n", TimeUnit.MILLISECONDS, temp);
-        digita("\nMais a frente você se depara com uma enorme sala, cheia de vasos e\n esculturas de diferentes tamanhos e formas.\nAlguns vasos específicos contém grandes números desenhados neles (1; 8; 1.)", TimeUnit.MILLISECONDS, temp);
-        digita("\nDo outro lado da sala há um portão com uma espécie de porteiro com\n senha pedindo três números. Ao lado desse porteiro há um papel com \numa frase escrita", TimeUnit.MILLISECONDS, temp);
-        digita("\nPara passar pense em um valor menor que 120 e maior que 110\n", TimeUnit.MILLISECONDS, temp);
+        digita("\n\nSeguindo o túnel da direita você vê que as paredes começam a mudar\npouco a pouco, diversos símbolos vão aparecendo\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nMais a frente você se depara com uma enorme sala, cheia de vasos e\nesculturas de diferentes tamanhos e formas.\nAlguns vasos específicos contém grandes números desenhados neles (1; 8; 1.)", TimeUnit.MILLISECONDS, temp);
+        digita("\nDo outro lado da sala há um portão com uma espécie de porteiro com\nsenha pedindo três números. Ao lado desse porteiro há um papel com\numa frase escrita", TimeUnit.MILLISECONDS, temp);
+        digita("\nFrase: Para passar desta sala pense em um valor menor que 120 e maior que 110\n", TimeUnit.MILLISECONDS, temp);
 
 
         String respostaCorreta = "118";
         String respostaUsuario;
         do {
-            System.out.print("Digite a sua resposta: ");
+            System.out.print("\nDigite a sua resposta: ");
             respostaUsuario = scanner.nextLine();
 
             if (respostaUsuario.equals(respostaCorreta)) {
@@ -1120,31 +1120,15 @@ public class Main {
         digita("\nAo entrar nessa nova sala, novamente uma voz ecoa...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("\n(?): Aparentemente você já entendeu como funcionam as coisas por aqui,\nacho que já está na hora de nos conhecermos.\n", TimeUnit.MILLISECONDS, temp);
-        digita("O pequeno ser olha para o jogador e fala:", TimeUnit.MILLISECONDS, temp);
-        digita("\nOlá," + nome + "meu nome é Edgar, sou o elfo responsável por esse lugar\ndevo dizer que você veio para em um lugar bem diferente…" + "PORÉM como eu sou um ajudante, irei te auxiliar com os desafios para sair daqui!...”\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nO pequeno ser olha para o jogador e fala:", TimeUnit.MILLISECONDS, temp);
+        digita("\nOlá," + nome + ", meu nome é Edgar, sou o elfo responsável por esse lugar\ndevo dizer que você veio para em um lugar bem diferente…\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nPORÉM como eu sou um ajudante, irei te auxiliar com os desafios para sair daqui!...", TimeUnit.MILLISECONDS, temp);
         proximo();
 
         System.out.println("Escolha uma das opções:");
         digita("\n1- Perdão… o que você é?\n", TimeUnit.MILLISECONDS, temp);
         digita("\n2- Tá.. Ajudar com o que exatamente?", TimeUnit.MILLISECONDS, temp);
         digita("\n3- Elfo? Isso não existe", TimeUnit.MILLISECONDS, temp);
-
-        escolha4 = scanner.nextByte();
-        //respostas do edgar:
-        switch (escolha4){
-            case 1:
-                digita("1: Orás, sou Edgar um elfo ajudante. Como você entrou aqui eu serei o responsável para que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
-                break;
-            case 2:
-                digita("2: Bom, já que você invadiu aqui eu sou responsável por garantir que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
-                break;
-            case 3:
-                digita("3: Ei… Isso ofendeu. Eu sou o Elfo ajudante e responsável por garantir que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
-                break;
-            default:
-                System.out.println("\nEscolha uma opção válida!\n\n");
-                break;
-        }
 
         escolha4 = scanner.nextByte();
         //respostas do edgar:
@@ -1164,15 +1148,15 @@ public class Main {
         }
 
         System.out.println("Escolha uma das opções abaixo: ");
-        digita("1- E como eu saio daqui?\n", TimeUnit.MILLISECONDS, temp);
-        digita("2- Entendi Edgar. Você sabe me informar sobre um tesouro escondido por aqui?", TimeUnit.MILLISECONDS, temp);
-        digita("3- Em segurança? O que isso significa?", TimeUnit.MILLISECONDS, temp);
+        digita("\n1- E como eu saio daqui?", TimeUnit.MILLISECONDS, temp);
+        digita("\n2- Entendi Edgar. Você sabe me informar sobre um tesouro escondido por aqui?", TimeUnit.MILLISECONDS, temp);
+        digita("\n3- Em segurança? O que isso significa?", TimeUnit.MILLISECONDS, temp);
         op2= scanner.nextByte();
 
         do {
             switch (op2){
                 case 1:
-                    digita("Edgar: Primeiramente, você precisa saber algumas contas de matemática,\nvou te explicar o que você deve fazer ao encontrar a resposta.\n", TimeUnit.MILLISECONDS, temp);
+                    digita("\nEdgar: Primeiramente, você precisa saber algumas contas de matemática,\nvou te explicar o que você deve fazer ao encontrar a resposta.\n", TimeUnit.MILLISECONDS, temp);
                     digita("Sempre que você já souber a resposta de algo você deve apertar 9 e “falar” a resposta da questão.\n", TimeUnit.MILLISECONDS, temp);
                     break;
                 case 2:
@@ -1193,24 +1177,24 @@ public class Main {
             default:
                 System.out.println("Escolha inválida! Escolha o número certo.");
         }
-        digita("Entendeu? Vamos a primeira pergunta: ", TimeUnit.MILLISECONDS, temp);
+        digita("\nEntendeu? Vamos a primeira pergunta:", TimeUnit.MILLISECONDS, temp);
 
         respostaCorreta = "2x";
         do {
-            digita("Quanto é X + X? ", TimeUnit.MILLISECONDS, temp);
+            digita("\nQuanto é X + X? ", TimeUnit.MILLISECONDS, temp);
             respostaUsuario = scanner.next();
 
             if (respostaUsuario.equals(respostaCorreta)) {
-                digita("Parabéns! Sua resposta está correta.", TimeUnit.MILLISECONDS, temp);
+                digita("\nParabéns! Sua resposta está correta.", TimeUnit.MILLISECONDS, temp);
             } else {
-                digita("Ops! Sua resposta está incorreta. Tente novamente.", TimeUnit.MILLISECONDS, temp);
+                digita("\nOps! Sua resposta está incorreta. Tente novamente.", TimeUnit.MILLISECONDS, temp);
             }
         } while (!respostaUsuario.equals(respostaCorreta));
 
         // Fecha o scanner para evitar vazamentos de recursos
         scanner.close();
 
-        digita("Após seguir seu caminho Edgar te leva para outra sala...\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nApós seguir seu caminho Edgar te leva para outra sala...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
         capitulo2(nome);
 
@@ -1221,11 +1205,11 @@ public class Main {
         byte escolha4;
         byte dica;
         byte op2;
-        digita("Seguindo o túnel da esquerda o jogador vê alguns números romanos escritos\nCCXXX", TimeUnit.MILLISECONDS, temp);
+        digita("\nSeguindo o túnel da esquerda o jogador vê alguns números romanos escritos (CCXXX)", TimeUnit.MILLISECONDS, temp);
         digita("Mesmo sem entender, você continua seguindo em frente.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Logo" + nome + "se depara com uma sala com diversos desenhos\nna parede, desenhos de pessoas caçando com um estranho pacote de", TimeUnit.MILLISECONDS, temp);
+        digita("\nLogo" + nome + "se depara com uma sala com diversos desenhos\nna parede, desenhos de pessoas caçando com um estranho pacote de", TimeUnit.MILLISECONDS, temp);
         digita("\npedras em seu bolso, eventualmente você vê uma enorme porta de\nferro com algo estranho que não deveria estar ali", TimeUnit.MILLISECONDS, temp);
-        digita("aparentemente um sistema para colocar a senha.\n", TimeUnit.MILLISECONDS, temp);
+        digita("\naparentemente um sistema para colocar a senha.\n", TimeUnit.MILLISECONDS, temp);
         digita("\nCom um certo receio, mas confiando no número romano que havia visto, você decide colocá-los no sistema\n", TimeUnit.MILLISECONDS, temp);
 
         System.out.println("Aperte 1 para dica");
@@ -1266,13 +1250,13 @@ public class Main {
         //respostas do edgar:
         switch (escolha4){
             case 1:
-                digita("Edgar: Orás, sou Edgar um elfo ajudante. Como você entrou aqui eu serei o responsável para que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
+                digita("\nEdgar: Orás, sou Edgar um elfo ajudante. Como você entrou aqui eu serei o responsável para que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
                 break;
             case 2:
-                digita("Edgar: Bom, já que você invadiu aqui eu sou responsável por garantir que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
+                digita("\nEdgar: Bom, já que você invadiu aqui eu sou responsável por garantir que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
                 break;
             case 3:
-                digita("Edgar: Ei… Isso ofendeu. Eu sou o Elfo ajudante e responsável por garantir que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
+                digita("\nEdgar: Ei… Isso ofendeu. Eu sou o Elfo ajudante e responsável por garantir que você saia, em segurança.\n", TimeUnit.MILLISECONDS, temp);
                 break;
             default:
                 System.out.println("\nEscolha uma opção válida!\n\n");
@@ -1280,9 +1264,9 @@ public class Main {
         }
 
         digita("Escolha uma das opções abaixo: ", TimeUnit.MILLISECONDS, temp);
-        digita("1- E como eu saio daqui?\n", TimeUnit.MILLISECONDS, temp);
+        digita("\n1- E como eu saio daqui?\n", TimeUnit.MILLISECONDS, temp);
         digita("2- Entendi Edgar. Você sabe me informar sobre um tesouro escondido por aqui?", TimeUnit.MILLISECONDS, temp);
-        digita("3- Em segurança? O que isso significa?", TimeUnit.MILLISECONDS, temp);
+        digita("\n3- Em segurança? O que isso significa?", TimeUnit.MILLISECONDS, temp);
         op2= scanner.nextByte();
 
         do {
