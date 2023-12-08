@@ -1,9 +1,6 @@
 import jdk.dynalink.NamedOperation;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -23,81 +20,180 @@ public class Main {
         return acertos + 1;
     }
 
-    public static void vinteUm () throws InterruptedException {
-        Random random = new Random();
-        Scanner input = new Scanner(System.in);
-        ArrayList<Integer> cartas = new ArrayList<>();
-        cartas.add(1);
-        cartas.add(2);
-        cartas.add(3);
-        cartas.add(4);
-        cartas.add(5);
-        cartas.add(6);
-        cartas.add(7);
-        cartas.add(8);
-        cartas.add(9);
-        cartas.add(10);
-        cartas.add(10);
-        cartas.add(10);
-        cartas.add(10);
+    public static void vinteUm() throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
 
-        int totalJogador = 0;
-        int totalCPU = 0;
-        int resposta;
-        int valorRandom = 0;
-        digita("Guardião de Pedra: Pode pegar a primeira carta, pequenino.", TimeUnit.MILLISECONDS, temp);
-        do {
-            digita("(1) Pegar carta" +
-                    "(2) Não pegar carta", TimeUnit.MILLISECONDS, temp);
-            System.out.print("Escolha: ");
-            resposta = input.nextByte();
-            switch (resposta) {
-                case 1:
-                    valorRandom = cartas.get(random.nextInt(cartas.size()));
-                    digita("Valor da carta: "+valorRandom, TimeUnit.MILLISECONDS, temp);
-                    totalJogador += valorRandom;
-                    digita("Suas cartas: "+totalJogador, TimeUnit.MILLISECONDS, temp);
-                    digita("Guardião de Pedra: Muito bem, vamos continuar.", TimeUnit.MILLISECONDS, temp);
-                    valorRandom = cartas.get(random.nextInt(cartas.size()));
-                    digita("Valor da carta: "+valorRandom, TimeUnit.MILLISECONDS, temp);
-                    totalCPU += valorRandom;
-                    if (totalJogador > 21 || totalCPU > 21) {
-                        break;
-                    }
-                    digita("Guardião de Pedra: Vamos lá, pegue mais uma!", TimeUnit.MILLISECONDS, temp);
-                    valorRandom = cartas.get(random.nextInt(cartas.size()));
-                    digita("Valor da carta: "+valorRandom, TimeUnit.MILLISECONDS, temp);
-                    totalJogador += valorRandom;
-                    digita("Suas cartas: "+totalJogador, TimeUnit.MILLISECONDS, temp);
-                    digita("Guardião de Pedra: Muito bem, minhas vez.", TimeUnit.MILLISECONDS, temp);
-                    valorRandom = cartas.get(random.nextInt(cartas.size()));
-                    digita("Valor da carta: "+valorRandom, TimeUnit.MILLISECONDS, temp);
-                    totalCPU += valorRandom;
-                    if (totalJogador > 21 || totalCPU > 21) {
-                        break;
-                    }
-                    digita("Guardião de Pedra: Vamos lá, pegue mais uma!", TimeUnit.MILLISECONDS, temp);
-                    valorRandom = cartas.get(random.nextInt(cartas.size()));
-                    digita("Valor da carta: "+valorRandom, TimeUnit.MILLISECONDS, temp);
-                    totalJogador += valorRandom;
-                    digita("Suas cartas: "+totalJogador, TimeUnit.MILLISECONDS, temp);
-                    digita("Guardião de Pedra: Muito bem, minhas vez.", TimeUnit.MILLISECONDS, temp);
-                    valorRandom = cartas.get(random.nextInt(cartas.size()));
-                    digita("Valor da carta: "+valorRandom, TimeUnit.MILLISECONDS, temp);
-                    totalCPU += valorRandom;
-                    if (totalJogador > 21 || totalCPU > 21) {
-                        break;
-                    }
+
+        List<String> maoJogador = new ArrayList<>();
+        List<String> maoComputador = new ArrayList<>();
+
+        List<String> baralho = inicializarBaralho();
+        Collections.shuffle(baralho);
+
+        // Distribui as cartas para o jogador e o computador
+        distribuirCarta(baralho, maoJogador);
+        distribuirCarta(baralho, maoComputador);
+        distribuirCarta(baralho, maoJogador);
+        distribuirCarta(baralho, maoComputador);
+
+        // Mostra as cartas iniciais
+        digita("\nSistema: Cartas do aventureiro -> " + maoJogador, TimeUnit.MILLISECONDS, temp);
+        digita("\nSistema: Mão total do aventureiro -> " + calcularPontuacao(maoJogador), TimeUnit.MILLISECONDS, temp);
+        digita("\nSistema: Carta do Guardião -> " + maoComputador.get(0), TimeUnit.MILLISECONDS, temp);
+
+        // Jogo principal
+        while (true) {
+            // Vez do jogador
+            digita("\n\nSistema: Escolha uma ação: " +
+                    "\n\n(1) Pedir carta " +
+                    "\n(2) Parar", TimeUnit.MILLISECONDS, temp);
+            digita("\nEscolha: ", TimeUnit.MILLISECONDS, temp);
+            int escolha = scanner.nextInt();
+
+            if (escolha == 1) {
+                distribuirCarta(baralho, maoJogador);
+                digita("\nSistema: Cartas do aventureiro -> " + maoJogador, TimeUnit.MILLISECONDS, temp);
+                int pontuacaoJogador = calcularPontuacao(maoJogador);
+                digita("\nSistema: Mão total do aventureiro -> : " + pontuacaoJogador, TimeUnit.MILLISECONDS, temp);
+
+                if (pontuacaoJogador > 21) {
+                    digita("\nEdgar: Vish...", TimeUnit.MILLISECONDS, temp);
+                    digita("\nGuardião de Pedra: Você ultrapassou 21! Você perdeu!", TimeUnit.MILLISECONDS, temp);
+                    digita("\nGuardião de Pedra: Quer jogar mais uma?\n", TimeUnit.MILLISECONDS, temp);
+                    digita("\nSistema: O que deseja fazer?\n" +
+                            "\n(1) Jogar mais uma\n" +
+                            "(2) Encerrar jogatina\n", TimeUnit.MILLISECONDS, temp);
+                    digita("Escolha: ", TimeUnit.MILLISECONDS, temp);
+                    byte digEscolha;
+                    do {
+                        Scanner input = new Scanner(System.in);
+                        digEscolha = input.nextByte();
+
+                        if (digEscolha == 1) {
+                            vinteUm();
+                        } else if (digEscolha == 2) {
+                            digita("\nGuardião de Pedra: Acho que já podemos parar por aqui.\n", TimeUnit.MILLISECONDS, temp);
+                            break;
+                        } else {
+                            digita("\n\nSistema: Resposta inválida!.\n", TimeUnit.MILLISECONDS, temp);
+                            break;
+                        }
+                    } while (digEscolha != 1 && digEscolha != 2);
                     break;
-                case 2:
-                    digita("Guardião de Pedra: Não se acanhe, pegue logo a carta.", TimeUnit.MILLISECONDS, temp);
+                }
+            } else if (escolha == 2) {
+                while (calcularPontuacao(maoComputador) < 17) {
+                    distribuirCarta(baralho, maoComputador);
+                }
+                digita("\nSistema: Cartas do Guardião -> " + maoComputador, TimeUnit.MILLISECONDS, temp);
+                System.out.println("\nSistema: Mão total do Guardião -> " + calcularPontuacao(maoComputador));
+
+                // Determina o vencedor
+                int pontuacaoJogador = calcularPontuacao(maoJogador);
+                int pontuacaoComputador = calcularPontuacao(maoComputador);
+
+                if (pontuacaoJogador > 21 || (pontuacaoComputador <= 21 && pontuacaoComputador >= pontuacaoJogador)) {
+                    digita("\nEdgar: Ah, acho que-", TimeUnit.MILLISECONDS, temp);
+                    digita("\nGuardião de Pedra: EU VENCI!!!", TimeUnit.MILLISECONDS, temp);
+                    digita("\nGuardião de Pedra: Quer jogar mais uma?\n", TimeUnit.MILLISECONDS, temp);
+                    digita("\nSistema: O que deseja fazer?\n" +
+                            "\n(1) Jogar mais uma\n" +
+                            "(2) Encerrar jogatina\n", TimeUnit.MILLISECONDS, temp);
+                    digita("Escolha: ", TimeUnit.MILLISECONDS, temp);
+                    byte digEscolha1;
+                    do {
+                        Scanner input = new Scanner(System.in);
+                        digEscolha1 = input.nextByte();
+
+                        if (digEscolha1 == 1) {
+                            vinteUm();
+                        } else if (digEscolha1 == 2) {
+                            digita("\nGuardião de Pedra: Acho que já podemos parar por aqui.\n", TimeUnit.MILLISECONDS, temp);
+                            break;
+                        } else {
+                            digita("\nSistema: Resposta inválida!.\n", TimeUnit.MILLISECONDS, temp);
+                            break;
+                        }
+                    } while (digEscolha1 != 1 && digEscolha1 != 2);
                     break;
-                default:
-                    System.out.println("Opção Invalida.");
+                } else {
+                    digita("\nEdgar: Você venceu!!!", TimeUnit.MILLISECONDS, temp);
+                    digita("\nGuardião de Pedra: Não fique se achando muito!", TimeUnit.MILLISECONDS, temp);
+                    digita("\nQuer jogar mais uma?\n", TimeUnit.MILLISECONDS, temp);
+                    digita("\nSistema: O que deseja fazer?\n" +
+                            "\n(1) Jogar mais uma\n" +
+                            "(2) Encerrar jogatina\n", TimeUnit.MILLISECONDS, temp);
+                    digita("Escolha: ", TimeUnit.MILLISECONDS, temp);
+                    byte digEscolha2;
+                    do {
+                        Scanner input = new Scanner(System.in);
+                        digEscolha2 = input.nextByte();
+
+                        if (digEscolha2 == 1) {
+                            vinteUm();
+                        } else if (digEscolha2 == 2) {
+                            digita("\nGuardião de Pedra: Acho que já podemos parar por aqui.\n", TimeUnit.MILLISECONDS, temp);
+                            break;
+                        } else {
+                            digita("\nSistema: Resposta inválida!.\n", TimeUnit.MILLISECONDS, temp);
+                            break;
+                        }
+                    } while (digEscolha2 != 1 && digEscolha2 != 2);
                     break;
+                }
+            } else {
+                digita("Sistema: Escolha inválida. Tente novamente.", TimeUnit.MILLISECONDS, temp);
             }
+        }
+    }
 
-        } while (resposta != 1);
+    private static List<String> inicializarBaralho() {
+        List<String> baralho = new ArrayList<>();
+        for (int i = 2; i <= 10; i++) {
+            baralho.add(Integer.toString(i));
+        }
+        baralho.add("Valete");
+        baralho.add("Dama");
+        baralho.add("Rei");
+        baralho.add("Ás");
+
+        // Adiciona quatro conjuntos de cartas ao baralho
+        List<String> baralhoCompleto = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            baralhoCompleto.addAll(baralho);
+        }
+
+        return baralhoCompleto;
+    }
+
+    private static void distribuirCarta(List<String> baralho, List<String> mao) {
+        String carta = baralho.remove(0);
+        mao.add(carta);
+    }
+
+    private static int calcularPontuacao(List<String> mao) {
+        int pontuacao = 0;
+        int ases = 0;
+
+        for (String carta : mao) {
+            if (carta.equals("Valete") || carta.equals("Dama") || carta.equals("Rei")) {
+                pontuacao += 10;
+            } else if (carta.equals("Ás")) {
+                ases++;
+            } else {
+                pontuacao += Integer.parseInt(carta);
+            }
+        }
+
+        for (int i = 0; i < ases; i++) {
+            if (pontuacao + 11 <= 21) {
+                pontuacao += 11;
+            } else {
+                pontuacao += 1;
+            }
+        }
+
+        return pontuacao;
     }
 
 
@@ -596,7 +692,7 @@ proximo();
             digita("\nSistema: Qual ação você deseja tomar?\n\n", TimeUnit.MILLISECONDS, temp);
             digita("(1) 'Edgar, que lugar é esse?'\n" +
                     "(2) 'Onde estamos?'\n" +
-                    "(3) Seguir Edgar.\n\n", TimeUnit.MILLISECONDS, temp);
+                    "(3) Seguir Edgar.\n", TimeUnit.MILLISECONDS, temp);
             System.out.print("Escolha: ");
             resposta = input.nextByte();
             switch (resposta) {
@@ -641,15 +737,15 @@ proximo();
             } while (resposta1 != 1 && resposta1 != 2);
         }
 
-        digita("\n\nNarrador: Seguindo Edgar em direção ao castelo, o jogador começa a perceber que o castelo é " +
+        digita("\nNarrador: Seguindo Edgar em direção ao castelo, o jogador começa a perceber que o castelo é " +
                 "totalmente dourado, tem um brilho intenso, como se fosse ouro.\n", TimeUnit.MILLISECONDS, temp);
         digita("O castelo tem um enorme portão, e ao lado há uma tabuleta de madeira com uma faca.\n",
                 TimeUnit.MILLISECONDS,
                 temp);
-        digita("Edgar: Eita, não esperava por isso. Bom então aqui é o início do segundo desafio. Vejamos...\n",
+        digita("\nEdgar: Eita, não esperava por isso. Bom então aqui é o início do segundo desafio. Vejamos...\n",
                 TimeUnit.MILLISECONDS, temp);
         proximo();
-        digita("Edgar sopra sobre a tabuleta uma espécie de pó, que pouco a pouco forma o desafio.\n",
+        digita("Narrador: Edgar sopra sobre a tabuleta com uma espécie de pó, que pouco a pouco forma o desafio.\n",
                 TimeUnit.MILLISECONDS,
                 temp);
         digita("\nEscrita da tabuleta: Para por aqui continuar, um enigma matemático terá de acertar...\n",
@@ -660,78 +756,61 @@ proximo();
                 TimeUnit.MILLISECONDS, temp);
 
         do {
-            digita("Sistema: O que deseja fazer?\n",TimeUnit.MILLISECONDS, temp);
-            digita("(1) Gritar bem alto a resposta.\n" +
-                    "(2) Pedir ajuda a Edgar\n\n",TimeUnit.MILLISECONDS, temp);
+            digita("\nSistema: O que deseja fazer?\n", TimeUnit.MILLISECONDS, temp);
+            digita("\n(1) Talhar a resposta na tabuleta.\n" +
+                    "(2) Pedir ajuda a Edgar\n", TimeUnit.MILLISECONDS, temp);
             System.out.print("Escolha: ");
             resposta2 = input.nextInt();
             switch (resposta2) {
                 case 1:
-                    digita("Insira a resposta do desafio: ", TimeUnit.MILLISECONDS, temp);
-                    int respDesafio2 = input.nextInt();
-                    while (true) {
+                    int respDesafio2;
+                    do {
+                        digita("\nInsira a resposta do desafio: ", TimeUnit.MILLISECONDS, temp);
+                        respDesafio2 = input.nextInt();
                         if (respDesafio2 == 9) {
-                            digita(nome + ": A RESPOSTA É " + respDesafio2 + " !!!", TimeUnit.MILLISECONDS, temp);
-                            digita("Narrador: Nada acontece, a porta não se mexe nem mesmo um centímetro.", TimeUnit.MILLISECONDS, temp);
-                            digita("Edgar: ...", TimeUnit.MILLISECONDS, temp);
-                            proximo();
-                            digita("Edgar: Hã...\n", TimeUnit.MILLISECONDS, temp);
-                            proximo();
-                            digita("Acho que era pra talhar na tabuleta, digo, a resposta...\n"
-                                    , TimeUnit.MILLISECONDS, temp);
-                            proximo();
-                            digita("Narrador: Que momento vergonhoso para nosso aventureiro...\n"
-                                    , TimeUnit.MILLISECONDS, temp);
-                            proximo();
-                            digita("Sistema: Prossiga.\n", TimeUnit.MILLISECONDS, temp);
-                            digita("(1) Talhar resposta.\n", TimeUnit.MILLISECONDS, temp);
-                            System.out.print("Escolha: ");
-                            int r = input.nextByte();
-                            if (r == 1) {
-                                break;
-                            } else {
-                                System.out.println("Sistema: Opção Invalida.");
-                            }
+                            break;
                         } else {
-                            digita("Narrador: Nada acontece, a porta não se mexe nem mesmo um centímetro."
-                                    , TimeUnit.MILLISECONDS, temp);
-                            digita("Edgar: Acho que não é essa a resposta...", TimeUnit.MILLISECONDS, temp);
+                            digita("\nNarrador: Nada acontece, a porta não se mexe nem mesmo um centímetro.\n"
+                                    + "\nEdgar: Acho que não é essa a resposta...\n", TimeUnit.MILLISECONDS, temp);
                         }
-                    }
+                    } while (respDesafio2 != 9);
                     break;
                 case 2:
                     if (acertos > 0) {
-                        digita("Edgar: Utilize a fórmula de Baskhara, acho que dessa forma podemos descobrir qual " +
-                                        "número colocar no lugar de k para que 'b^2 - 4ac' seja um quadrado perfeito."
+                        digita("\nEdgar: Utilize a fórmula de Baskhara, acho que dessa forma podemos descobrir qual \n" +
+                                        "número colocar no lugar de k para que 'b^2 - 4ac' seja um quadrado perfeito.\n"
                                 , TimeUnit.MILLISECONDS, temp);
-
+                        break;
                     } else {
-                        digita("Edgar: Acho que não consigo te ajudar dessa vez carinha."
+                        digita("\nEdgar: Acho que não consigo te ajudar dessa vez carinha.\n"
                                 , TimeUnit.MILLISECONDS, temp);
                     }
+                    break;
                 default:
-                    System.out.println("Sistema: Opção Invalida.");
+                    System.out.println("\nSistema: Opção Invalida.");
             }
         } while (resposta2 != 1);
-        digita("Narrador: Após talhar a resposta na tabuleta a porta finalmente se abre\n"
+
+        digita("\nNarrador: Após talhar a resposta correta na tabuleta a porta finalmente se abre.\n"
                 , TimeUnit.MILLISECONDS, temp);
-        digita("Edgar: É isso! Vamos entrar, você tem que ver tudo por aqui!\n", TimeUnit.MILLISECONDS, temp);
-        digita("Narrador: Ao entrar no castelo há um enorme hall, com enormes pinturas que iam de " +
+        digita("\nEdgar: É isso! Vamos entrar, você tem que ver tudo por aqui!\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nNarrador: Ao entrar no castelo há um enorme hall, com enormes pinturas que iam de " +
                 "sistemas numéricos antigos \naté calculadoras e computadores atuais\n", TimeUnit.MILLISECONDS, temp);
-        digita("Edgar: Há, sim.. Bom, como eu disse aqui é o começo de tudo e isso aqui é o que temos " +
+        digita("\nEdgar: Há, sim.. Bom, como eu disse aqui é o começo de tudo e isso aqui é o que temos " +
                 "mais orgulho...", TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("O nosso criador, fez com que todos os povos tenham conhecimentos, porém demorou \num pouco para " +
                         "chegarmos onde estamos, porém tem um que acertamos \nem cheio e diversas pessoas ainda usam, é esse aqui:\n"
                 , TimeUnit.MILLISECONDS, temp);
-        digita("Narrador: Edgar mostra uma foto de um objeto com diversas bolas ao redor que ao " +
+        digita("\nNarrador: Edgar mostra uma foto de um objeto com diversas bolas ao redor que ao " +
                 "mexer elas podemos chegar a um determinado valor.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Edgar: Você conhece esse aqui?", TimeUnit.MILLISECONDS, temp);
+        digita("\nEdgar: Você conhece esse aqui?\n", TimeUnit.MILLISECONDS, temp);
         do {
-            digita("(1) 'SIM, é um ábaco né?'\n" +
+            digita("\nSistema: O que deseja fazer?\n", TimeUnit.MILLISECONDS, temp);
+            digita("\n(1) 'SIM, é um ábaco né?'\n" +
                     "(2) 'Olha! Parece um instrumento musical.'\n" +
-                    "(3) 'Um... Brinquedo para ciranças?'\n", TimeUnit.MILLISECONDS, temp);
-            System.out.println("Escolha: ");
+                    "(3) 'Um... Brinquedo para crianças?'\n", TimeUnit.MILLISECONDS, temp);
+            System.out.print("\nEscolha: ");
             resposta3 = input.nextByte();
             switch (resposta3) {
                 case 1:
@@ -741,48 +820,54 @@ proximo();
                 case 3:
                     digita("\nNah... ", TimeUnit.MILLISECONDS, temp);
                     proximo();
-                    digita("na verdade é um ábaco, mas sem problemas\n", TimeUnit.MILLISECONDS, temp);
+                    digita("na verdade é um ábaco, mas sem problemas!\n", TimeUnit.MILLISECONDS, temp);
+                    break;
                 default:
-                    System.out.println("\nOpção Invalida.\n");
+                    digita("\nSistema: Opção Invalida.\n", TimeUnit.MILLISECONDS, temp);
             }
         } while (resposta3 != 1 && resposta3 != 2 && resposta3 != 3);
-        digita("Narrador: Seguindo em frente no enorme castelo dá se ver diversos elfos com livros conversando " +
+        digita("\nNarrador: Seguindo em frente no enorme castelo dá se ver diversos elfos com livros conversando " +
                 "uns com os outros.\n", TimeUnit.MILLISECONDS, temp);
         digita("Uma enorme porta está em frente de vocês agora, uma enorme porta para o que aparenta ser para " +
                 "um ser enorme passar.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Edgar: Olha só, vamos entrar na sala do criador. Por favor, mantenha o respeito " +
+        digita("\nEdgar: Olha só, vamos entrar na sala do criador. Por favor, mantenha o respeito " +
                 "com ele.\n", TimeUnit.MILLISECONDS, temp);
         digita("Só temos que falar com o guardião antes. Aliás, você sabe jogar cartas?\n"
                 , TimeUnit.MILLISECONDS, temp);
         digita("\n!!! BOOOOOM !!!\n", TimeUnit.MILLISECONDS, temp);
         digita("\nNarrador: Antes que você possa responder a porta a frente de voces se abre com um intensa " +
-                "força,\n revelando um grande ser, seu rosto é revestido com pedras, " +
-                "diversos amuletos estão em seu braço,\n com números e operações escritas, " +
+                "força,\nrevelando um grande ser, seu rosto é revestido com pedras, " +
+                "diversos amuletos estão em seu braço,\ncom números e operações escritas, " +
                 "Em seu cinturão há um enorme baralho feito de um tipo de mármore.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Guardião de Pedra: Edgar, o que você está fazendo aqui? Eu já falei," +
+        digita("\nGuardião de Pedra: Edgar, o que você está fazendo aqui? Eu já falei," +
                 " não traga humanos para cá!\n", TimeUnit.MILLISECONDS, temp);
-        digita("Edgar: Calma aí Pedroso, esse aqui é diferente. Ele está querendo voltar, " +
+        digita("\nEdgar: Calma aí Pedroso, esse aqui é diferente. Ele está querendo voltar, " +
                 "entrou aqui por engano.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Guardião de Pedra: Bom, você sabe as regras. Para voltar tem que me ganhar, " +
+        digita("\nGuardião de Pedra: Bom, você sabe as regras. Para voltar tem que me ganhar, " +
                 "no meu jogo.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Edgar: Ok, eu vou explicar como funciona.\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nEdgar: Ok, eu vou explicar como funciona.\n\n", TimeUnit.MILLISECONDS, temp);
+
+        // Explicação das regras do 21
         digita("======== Regras do Jogo ========", TimeUnit.MILLISECONDS, temp);
-        digita("O objetivo do jogo é ter uma mão de cartas com um valor total mais próximo de 21\n do que" +
+        digita("\n\nO objetivo do jogo é ter uma mão de cartas com um valor total mais próximo de 21\ndo que" +
                 " a mão do dealer (a casa), sem ultrapassar 21.\n", TimeUnit.MILLISECONDS, temp);
-        digita("As cartas de 2 a 10 valem seu valor normal\n", TimeUnit.MILLISECONDS, temp);
+        digita("As cartas de 2 a 10 valem seu valor normal.\n", TimeUnit.MILLISECONDS, temp);
         digita("As cartas de face (valete, rainha e rei) valem 10 pontos cada.\n", TimeUnit.MILLISECONDS, temp);
         digita("As cartas de Ás podem valer 1 ou 11 pontos, dependendo da situação. " +
                 "O jogador decide o valor do Ás.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Guardião de Pedra: Vamos começar o jogo!\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nGuardião de Pedra: Ok, agora que sabe as regras...\n", TimeUnit.MILLISECONDS, temp);
+        proximo();
+        digita("Vamos começar o jogo!\n", TimeUnit.MILLISECONDS, temp);
         vinteUm();
-        digita("Guardião de Pedra: É pequenino, foi divertido.\n", TimeUnit.MILLISECONDS, temp);
+
+        digita("\nGuardião de Pedra: É pequenino, foi divertido.\n", TimeUnit.MILLISECONDS, temp);
         digita("Como agradecimento pela jogatina, vou levá-los ao Criador.\n", TimeUnit.MILLISECONDS, temp);
-        digita("O guardião leva até uma sala ao lado, um enorme trono está de costas para a porta, monitores " +
+        digita("\nNerrador: O guardião leva vocês até uma sala ao lado, um enorme trono está de costas para a porta, monitores " +
                 "enormes estão ao redor da sala, \n", TimeUnit.MILLISECONDS, temp);
         digita("todos com diversas contas acontecendo, elfos fiscalizam e fazem anotações sobre tudo " +
                 "que está sendo passado.\n", TimeUnit.MILLISECONDS, temp);
-        digita("Guardião de Pedra: Criador, com licença. Temos um diferente.", TimeUnit.MILLISECONDS, temp);
-        digita("Narrador: Dois elfos vão em direção a cadeira e começam a virá-la lentamente. Ao virar totalmente a cadeira é visto que... \n", TimeUnit.MILLISECONDS, temp);
+        digita("\nGuardião de Pedra: Criador, com licença. Temos um diferente.\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nNarrador: Dois elfos vão em direção a cadeira e começam a virá-la lentamente. Ao virar totalmente a cadeira é visto que... \n", TimeUnit.MILLISECONDS, temp);
 
 
         capitulo4(nome);
