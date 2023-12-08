@@ -881,9 +881,9 @@ proximo();
         digita("ele usa um sobretudo preto e uma espécie de máscara que revela apenas seus olhos que brilham em dourado...",TimeUnit.MILLISECONDS, temp);
         proximo();
         System.out.println("");
-        digita("Criador:\n - Pedroso, Edgar... Me expliquem agora o motivo desse ser estar na minha sala!...",TimeUnit.MILLISECONDS, temp);
+        digita("Criador: Pedroso, Edgar... Me expliquem agora o motivo desse ser estar na minha sala!...",TimeUnit.MILLISECONDS, temp);
         proximo();
-        digita("Edgar:\n - C-criador... até onde sei seu nome é " + nome + ", não sei exatamente como conseguiu entrar aqui, mas apenas quer voltar\n" +
+        digita("Edgar: C-criador... até onde sei seu nome é " + nome + ", não sei exatamente como conseguiu entrar aqui, mas apenas quer voltar\n" +
                 "para o povo lá de cima. Passamos por vários desafios para chegar até aqui, até ganhou do Pedroso...",TimeUnit.MILLISECONDS, temp);
         System.out.println("");
         proximo();
@@ -891,7 +891,7 @@ proximo();
         //Sout utilizado para espaçãr os elementos
         System.out.println("");
         System.out.println("");
-        digita("Criador:\n - Muito bem, " + nome + ", já que você chegou até aqui, vou te explicar melhor o que está acontecendo.\n",TimeUnit.MILLISECONDS, temp);
+        digita("Criador: Muito bem, " + nome + ", já que você chegou até aqui, vou te explicar melhor o que está acontecendo.\n",TimeUnit.MILLISECONDS, temp);
         digita("Você está no coração do monde, o ínicio de tudo.\n",TimeUnit.MILLISECONDS, temp);
         digita("Eu sou responsável por criar, moldar e cuidar de todo o conhecimento, formulás de cálculos e todas as estruturas que envolver o universo...\n",TimeUnit.MILLISECONDS, temp);
         proximo();
@@ -913,16 +913,16 @@ proximo();
         switch (a1) {
             case 1 -> {
                 System.out.println("");
-                digita("Criador:\n- Bom, para que você saia, obviamente terá que passar por mais um desafio, nesse caso, será especialmente" +
+                digita("Criador: Bom, para que você saia, obviamente terá que passar por mais um desafio, nesse caso, será especialmente" +
                         " feito por mim!...\n", TimeUnit.MILLISECONDS, temp);
                 proximo();
                 break;
             }
             case 2 -> {
                 System.out.println("");
-                digita("Criador:\n- Calma jovem, com tantas perguntas você vai acabar dividindo por zero...\n", TimeUnit.MILLISECONDS, temp);
+                digita("Criador: Calma jovem, com tantas perguntas você vai acabar dividindo por zero...\n", TimeUnit.MILLISECONDS, temp);
                 System.out.println("[Pedroso e Edgar riem]");
-                digita("Criador:\n- Vamos, o que você deseja saber?\n", TimeUnit.MILLISECONDS, temp);
+                digita("Criador: Vamos, o que você deseja saber?\n", TimeUnit.MILLISECONDS, temp);
                 break;
             }
         }
@@ -933,11 +933,11 @@ proximo();
         } else if (a1 == 2) {
             digita("\n'Quero saber um pouco mais sobre aqui'\n", TimeUnit.MILLISECONDS, temp);
         }
-        digita("Criador:\n- Bom, como você já sabe aqui é o monde, onde tudo foi criado",TimeUnit.MILLISECONDS, temp);
+        digita("Criador: Bom, como você já sabe aqui é o monde, onde tudo foi criado",TimeUnit.MILLISECONDS, temp);
         System.out.println("");
         digita("Em um piscar de olhos o criador muda sua forma, assumindo uma aparência indentica a sua...",TimeUnit.MILLISECONDS, temp);
         proximo();
-        digita("\nCriador:\n- Viu? " + nome + " eu posso ser você, Edgar ou até o Pedroso.\n" +
+        digita("\nCriador: Viu? " + nome + " eu posso ser você, Edgar ou até o Pedroso.\n" +
                 " Eu nasci aqui e toda minha vida se resumiu em deixar tudo em perfeita ordem...",TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("- Não esqueça " + nome + " para tudo há diversas opções, desde que você entrou aqui seu único desejo é encontrar um tesouro e depois sair,\n",TimeUnit.MILLISECONDS, temp);
@@ -965,7 +965,7 @@ proximo();
         Scanner scanner = new Scanner(System.in);
         int resp;
         do {
-            digita("Criador:\n- O desafio consiste no seguinte. Vou te passar 2 valores aleatorios, você deve escolher um desses valores" +
+            digita("Criador: O desafio consiste no seguinte. Vou te passar 2 valores aleatorios, você deve escolher um desses valores" +
                     " depois disso será minha vez...", TimeUnit.MILLISECONDS, temp);
             proximo();
             digita("Dessa forma vamos gerar um lindo polinomio, responda corretamente e você saíra!...\n", TimeUnit.MILLISECONDS, temp);
@@ -1022,7 +1022,7 @@ proximo();
         int z = random.nextInt(20) + 1;
 
         //informa os valores que o criador pegou
-        digita("\nCriador:\n'Bom, então essa será minha formação!...'\n", TimeUnit.MILLISECONDS, temp);
+        digita("\nCriador: Bom, então essa será minha formação!...\n", TimeUnit.MILLISECONDS, temp);
         digita("-" + x + "x^2 + " + y + "x + " + z+"\n", TimeUnit.MILLISECONDS, temp);
         proximo();
 
@@ -1089,7 +1089,7 @@ proximo();
         Scanner scanner = new Scanner(System.in);
         digita("Ao finalizar o desafio com êxito o criador te olha de forma orgulhosa",TimeUnit.MILLISECONDS, temp);
         System.out.println("");
-        digita("Criador:\n- Você foi bem "+ nome+ ". Demonstrou compreensão e habilidade...\n",TimeUnit.MILLISECONDS, temp);
+        digita("Criador: Você foi bem "+ nome+ ". Demonstrou compreensão e habilidade...\n",TimeUnit.MILLISECONDS, temp);
         digita("Como eu disse, há sempre a opção de ficar por aqui e a opção de ir.\n",TimeUnit.MILLISECONDS, temp);
 
         int op;
@@ -1131,13 +1131,13 @@ proximo();
     public static void ficar(String nome) throws InterruptedException {
         digita("Ao escolher ficar os olhos do criador se tornam mais intensos, em um tom de felicidade",TimeUnit.MILLISECONDS, temp);
         System.out.println("");
-        digita("Criador:\n- Ótima escolha, venha me dê sua mão...\n",TimeUnit.MILLISECONDS, temp);
+        digita("Criador: Ótima escolha, venha me dê sua mão...\n",TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("Ao tocar a mão do criador você sente seu corpo leve, seus olhos se fecham e sua mente divaga em um cenário aconchegante e feliz\n",TimeUnit.MILLISECONDS, temp);
         digita("Você sente que agora tudo está resolvido, você encontrou o tesouro que procurava...\n",TimeUnit.MILLISECONDS, temp);
         proximo();
         digita(nome + " você acorda de repente em uma cama leve e macia, um chalé de madeira. Ao lado da cama está Edgar\n",TimeUnit.MILLISECONDS, temp);
-        digita("Edgar:\n- Você ficou, que legal. Bem vindo, essa é sua nova casa...\n",TimeUnit.MILLISECONDS, temp);
+        digita("Edgar: Você ficou, que legal. Bem vindo, essa é sua nova casa...\n",TimeUnit.MILLISECONDS, temp);
         proximo();
         fim();
     }
@@ -1145,13 +1145,13 @@ proximo();
 
     public static void sair(String nome) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        digita("Criador:\n- Claro eu entendo\n",TimeUnit.MILLISECONDS, temp);
+        digita("Criador: Claro eu entendo\n",TimeUnit.MILLISECONDS, temp);
         digita("Com um gesto de mão, o criador cria uma portal de luz em sua frente...\n",TimeUnit.MILLISECONDS, temp);
         proximo();
-        digita("Criador:\n- Continue sua jornada " + nome+ ". Não esqueça, o conhecimento é o tesouro que você procura\n",TimeUnit.MILLISECONDS, temp);
+        digita("Criador: Continue sua jornada " + nome+ ". Não esqueça, o conhecimento é o tesouro que você procura\n",TimeUnit.MILLISECONDS, temp);
         System.out.println("");
         digita("Ao atravessar a passagem você se vê na entrada das catacumbas, ali estão Mika e Osmar\n",TimeUnit.MILLISECONDS, temp);
-        digita("Mika:\n- Ei, "+nome+", encontrou o que queria?...",TimeUnit.MILLISECONDS, temp);
+        digita("Mika: Ei, "+nome+", encontrou o que queria?...",TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("Você sente uma intensa dor de cabeça e um leve flash de memoria 'Conhecimento é o tesouro que você procura\n",TimeUnit.MILLISECONDS, temp);
 
@@ -1167,7 +1167,7 @@ proximo();
         }while (op != 1 && op != 2);
 
         digita("Mika e Osmar se entreolham, seus olhos dão um livre brilho em dourado\n",TimeUnit.MILLISECONDS, temp);
-        digita("Osmar:\n- Que legal, fico feliz que tenha aprendido, com certeza Edgar sentirá saudades...",TimeUnit.MILLISECONDS, temp);
+        digita("Osmar: Que legal, fico feliz que tenha aprendido, com certeza Edgar sentirá saudades...",TimeUnit.MILLISECONDS, temp);
         proximo();
         fim();
 
