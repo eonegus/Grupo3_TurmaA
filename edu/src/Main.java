@@ -219,7 +219,7 @@ public class Main {
             System.out.print("-                         -\n");
             digita("---------------------------\n",TimeUnit.MILLISECONDS,temp);
 
-            digita("Escolha uma opção:", TimeUnit.MILLISECONDS,temp);
+            digita("Escolha uma opção: ", TimeUnit.MILLISECONDS,temp);
             op = scanner.nextInt();
             escolhaMenu(op);
 
@@ -312,7 +312,6 @@ public class Main {
         System.out.println("Para começarmos, me diga, como devo chama-lo?:");
         //Deixa o usuario livre para escolher seu nome
         String nome = scanner.nextLine();
-        System.out.println("Olá, " + nome + "!");
         //passa o nome para a função
         capitulo1(nome);
     }
