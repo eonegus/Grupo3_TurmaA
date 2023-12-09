@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     static int temp = 10;
-    static int acertos = 0; // Variavel global de acertos
+    static int acertos = 1; // Variavel global de acertos
     public static void proximo() {
         //Função que faz o skip com o ENTER
         Scanner scanner = new Scanner(System.in);
@@ -13,11 +13,6 @@ public class Main {
         next = scanner.nextLine();
         if (next.isEmpty()) {
         }
-    }
-
-    public static int acertos() {
-        // Função chamada cada vez que o jogador acerta um dos desafios.
-        return acertos + 1;
     }
 
     public static void vinteUm() throws InterruptedException {
@@ -458,7 +453,9 @@ public class Main {
         digita("2x² + 4x + 3 + 4x² – 2x + 4\n", TimeUnit.MILLISECONDS, temp);
 
         do {
-            digita("Caso a resposta esteja correta a parede em frente se abrirá dando passagem para que você possa seguir em frente...\n", TimeUnit.MILLISECONDS, temp);
+            int tentativas = 0;
+
+            digita("Caso a resposta esteja correta, a parede em frente se abrirá, dando passagem para que você possa seguir em frente...\n", TimeUnit.MILLISECONDS, temp);
             proximo();
             digita("1)  6x² - 2x + 7\n" +
                     "2)  6x² + 2x - 7\n" +
@@ -466,6 +463,7 @@ public class Main {
                     "4) Dica\n", TimeUnit.MILLISECONDS, temp);
 
             desafio1 = menu.nextInt();
+            tentativas++;
 
             switch (desafio1) {
                 case 1:
@@ -474,20 +472,30 @@ public class Main {
                 case 2:
                     digita("Resposta errada!\n", TimeUnit.MILLISECONDS, temp);
                     break;
-
                 case 3:
                     digita("Resposta certa!\n", TimeUnit.MILLISECONDS, temp);
+                    acertos++;
+                    if (tentativas == 1) {
+                        digita("Sistema: Parabéns! Você acertou na primeira tentativa e ganhou um ponto para dicas.\n", TimeUnit.MILLISECONDS, temp);
+                    } else {
+                        digita("Sistema: Você acertou após " + tentativas + " tentativas.\n", TimeUnit.MILLISECONDS, temp);
+                        digita("Não foram debitados pontos para dicas.\n\n", TimeUnit.MILLISECONDS, temp);
+                    }
                     break;
-
                 case 4:
-                    digita("Dica: Primeiro some os termos independentes, depois combine os termos semelhantes.\n", TimeUnit.MILLISECONDS, temp);
+                    if (acertos > 0) {
+                        digita("Dica: Primeiro some os termos independentes, depois combine os termos semelhantes.\n", TimeUnit.MILLISECONDS, temp);
+                        acertos--;
+                    } else {
+                        digita("Você não possui pontos para dicas no momento.\n", TimeUnit.MILLISECONDS, temp);
+                    }
                     break;
-
                 default:
                     digita("Opção Inválida!\n", TimeUnit.MILLISECONDS, temp);
                     break;
             }
         } while (desafio1 != 3);
+
 
         digita("\n" +
                 "Narrador: Quando essa porta se abre o jogador vê em sua frente um enorme salão dourado.\n" +
@@ -635,14 +643,16 @@ public class Main {
         digita("4x³ - 2x² + 5x - 3\n", TimeUnit.MILLISECONDS, temp);
 
         do {
-            digita("Caso a resposta esteja correta, a parede em frente se abrirá, dando passagem para que você possa seguir em frente...\n", TimeUnit.MILLISECONDS, temp);
+            int tentativas = 0;
+            digita("Caso a resposta esteja correta, a parede em frente se abrirá, dando passagem para que você possa seguir em frente...\n", TimeUnit.MILLISECONDS, 50);
             proximo();
             digita("1)  2x³ + 3x² - 2x - 1\n" +
                     "2)  4x³ - x² + 5x - 3\n" +
                     "3)  4x³ - 2x² + 5x + 3\n" +
-                    "4) Dica\n", TimeUnit.MILLISECONDS, temp);
+                    "4) Dica\n", TimeUnit.MILLISECONDS, 50);
 
             escolhaDesafio2 = menu.nextInt();
+            tentativas++;
 
             switch (escolhaDesafio2) {
                 case 1:
@@ -652,6 +662,13 @@ public class Main {
                 case 2:
                     digita("Parabéns! Você resolveu o desafio. A parede se abre, revelando um novo caminho...\n", TimeUnit.MILLISECONDS, temp);
                     proximo();
+                    if (tentativas == 1) {
+                        digita("Sistema: Você acertou na primeira tentativa! Excelente!\n", TimeUnit.MILLISECONDS, temp);
+                        digita("Foram debitados pontos de dicas no seu score.", TimeUnit.MILLISECONDS, temp);
+                    } else {
+                        digita("Sistema: Você acertou após " + tentativas + " tentativas.\n", TimeUnit.MILLISECONDS, temp);
+                        digita("Não foram debitados pontos para dicas.\n\n", TimeUnit.MILLISECONDS, temp);
+                    }
                     break;
                 case 3:
                     digita("Infelizmente, a resposta está incorreta. O colchão d'água parece ficar mais agitado, mas nada acontece...\n", TimeUnit.MILLISECONDS, temp);
@@ -661,10 +678,11 @@ public class Main {
                     digita("Considere agrupar termos e aplicar fatoração por grupos para simplificar o polinômio\n", TimeUnit.MILLISECONDS, temp);
                     break;
                 default:
-                    digita("Opção invalida.\n", TimeUnit.MILLISECONDS, temp);
+                    digita("Opção inválida.\n", TimeUnit.MILLISECONDS, temp);
                     break;
             }
         } while (escolhaDesafio2 != 2);
+
 
 
         digita("Narrador: Ao sair do colchão e atravessar o muro que se abriu em sua frente, seus olhos doem com o intenso brilho que é mostrado...\n" +
