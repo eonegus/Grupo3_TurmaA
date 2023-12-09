@@ -675,7 +675,11 @@ public class Main {
                     proximo();
                     break;
                 case 4:
-                    digita("Considere agrupar termos e aplicar fatoração por grupos para simplificar o polinômio\n", TimeUnit.MILLISECONDS, temp);
+                    if (acertos > 0) {
+                        digita("Considere agrupar termos e aplicar fatoração por grupos para simplificar o polinômio\n", TimeUnit.MILLISECONDS, temp);
+                        acertos--;
+                    }
+                    else digita("Sistema: Você não tem score de dicas o suficiente.", TimeUnit.MILLISECONDS, temp );
                     break;
                 default:
                     digita("Opção inválida.\n", TimeUnit.MILLISECONDS, temp);
@@ -811,6 +815,7 @@ proximo();
                         digita("\nEdgar: Utilize a fórmula de Bhaskara, acho que dessa forma podemos descobrir qual \n" +
                                         "número colocar no lugar de k para que 'b^2 - 4ac' seja um quadrado perfeito.\n"
                                 , TimeUnit.MILLISECONDS, temp);
+                        acertos--;
                         break;
                     } else {
                         digita("\nEdgar: Acho que não consigo te ajudar dessa vez carinha.\n"
