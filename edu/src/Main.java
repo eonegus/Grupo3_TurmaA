@@ -756,28 +756,42 @@ proximo();
                 TimeUnit.MILLISECONDS, temp);
 
         do {
-            digita("\nSistema: O que deseja fazer?\n", TimeUnit.MILLISECONDS, temp);
+            digita("\nSistema: O que deseja fazer?\n", TimeUnit.MILLISECONDS, 50);
             digita("\n(1) Talhar a resposta na tabuleta.\n" +
-                    "(2) Pedir ajuda a Edgar\n", TimeUnit.MILLISECONDS, temp);
+                    "(2) Pedir ajuda a Edgar\n", TimeUnit.MILLISECONDS, 50);
             System.out.print("Escolha: ");
             resposta2 = input.nextInt();
+
             switch (resposta2) {
                 case 1:
                     int respDesafio2;
+                    int tentativas = 0;
+
                     do {
+                        tentativas++;
                         digita("\nInsira a resposta do desafio: ", TimeUnit.MILLISECONDS, temp);
                         respDesafio2 = input.nextInt();
+
                         if (respDesafio2 == 9) {
-                            break;
+                            if (tentativas == 1) {
+                                digita("\nSistema: Parabéns! Você acertou na primeira tentativa e ganhou um ponto para dicas.\n",
+                                        TimeUnit.MILLISECONDS, temp);
+                                acertos++;
+                            } else {
+                                digita("\nSistema: Você acertou após " + tentativas + " tentativas.\n",
+                                        TimeUnit.MILLISECONDS, temp);
+                                digita("Não foram debitados pontos para dicas.\n", TimeUnit.MILLISECONDS, temp );
+                            }
                         } else {
                             digita("\nNarrador: Nada acontece, a porta não se mexe nem mesmo um centímetro.\n"
                                     + "\nEdgar: Acho que não é essa a resposta...\n", TimeUnit.MILLISECONDS, temp);
                         }
                     } while (respDesafio2 != 9);
+
                     break;
                 case 2:
                     if (acertos > 0) {
-                        digita("\nEdgar: Utilize a fórmula de Baskhara, acho que dessa forma podemos descobrir qual \n" +
+                        digita("\nEdgar: Utilize a fórmula de Bhaskara, acho que dessa forma podemos descobrir qual \n" +
                                         "número colocar no lugar de k para que 'b^2 - 4ac' seja um quadrado perfeito.\n"
                                 , TimeUnit.MILLISECONDS, temp);
                         break;
