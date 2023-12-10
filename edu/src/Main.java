@@ -309,13 +309,12 @@ public class Main {
         //Deixa o usuario livre para escolher seu nome
         String nome = scanner.nextLine();
         //passa o nome para a função
-        escolhaEsq(nome);
+        capitulo2(nome);
     }
 
     public static void capitulo1(String nome) throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
         //A função já está recebendo o nome pré estabelecido pelo jogador
-        digita("Bem vindo(a) " + nome,TimeUnit.MILLISECONDS, temp);
         byte escolha;
         byte escolha2;
         byte escolha3;
@@ -422,7 +421,7 @@ public class Main {
 
         Scanner menu = new Scanner(System.in);
 
-        digita("Narrador: Seguindo o que o Edgar disse, Você continua em frente.\n " +
+        digita("Seguindo o que o Edgar disse, Você continua em frente.\n " +
                 "E acaba se deparando com uma sala misteriosa, iluminada por uma luz fraca. No centro da sala, havia uma escrita enigmática em uma pedra antiga: \n" +
                 "Edgar: Entenda jovem aventureiro, nesse lugar a matemática domina, e tudo envolve cálculo...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
@@ -431,9 +430,9 @@ public class Main {
 
         // DESAFIO 1
         digita("Vamos ao primeiro desafio, por acaso você conhece sobre Polinómios?...", TimeUnit.MILLISECONDS, temp);
-        digita(" 1 - Sim.\n" +
-                " 2 - Não.\n" +
-                " 3 - Sim, porém não lembro.\n", TimeUnit.MILLISECONDS, temp);
+        digita(" \n1 - Sim." +
+                " \n2 - Não." +
+                " \n3 - Sim, porém não lembro.\n", TimeUnit.MILLISECONDS, temp);
 
         int pergunta1 = menu.nextInt();
 
@@ -450,7 +449,7 @@ public class Main {
                 break;
         }
 
-        digita("Narrador: Bom, então vamos lá.\n" +
+        digita("Bom, então vamos lá.\n" +
                 "Para avançar em sua busca, você deve decifrar o enigma do polinómio mágico.\n" +
                 "Responda corretamente e o caminho se abrirá diante de você...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
@@ -504,15 +503,14 @@ public class Main {
 
 
         digita("\n" +
-                "Narrador: Quando essa porta se abre o jogador vê em sua frente um enorme salão dourado.\n" +
+                "Quando essa porta se abre o jogador vê em sua frente um enorme salão dourado.\n" +
                 " a impressão é de que ele tenha saído desse universo, e entrado em uma cidade medieval...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("O salão é enorme e está em ruínas, aparentemente diversos saques e guerras aconteceram nesse local.\n" +
                 "Ao final da sala uma enorme cadeira, na qual com certeza não foi projetada para um ser humano se sentar...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
 
-        digita("Você pergunta:  \n" +
-                "1 - Edgar, que lugar é esse?\n" +
+        digita("\n1 - Edgar, que lugar é esse?\n" +
                 "2 - Uau, o que está rolando aqui?\n", TimeUnit.MILLISECONDS, temp);
 
         int pergunta2 = menu.nextInt();
@@ -543,8 +541,6 @@ public class Main {
 
         digita("Edgar: Olhe em volta jovem, tudo aqui é feito do mais puro ouro, há algo mais perfeito do que isso? ...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
-        digita("Você diz para Edgar: Que interessante, mas...\n", TimeUnit.MILLISECONDS, temp);
-        proximo();
         digita("1 - “Centro da terra? Monde? Dá pra explicar melhor?”\n" +
                 "2 - “Ok, Edgar. Então aqui é o centro da criação?”\n", TimeUnit.MILLISECONDS, temp);
 
@@ -571,8 +567,6 @@ public class Main {
                 " as paredes se mantêm com um toque delicado de mármore.\n" +
                 "Caminhando mais e mais, com o que parece ser um corredor sem fim, logo a frente um feixe de luz se forma...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
-        digita("Qual ação devo tomar...\n", TimeUnit.MILLISECONDS, temp);
-        proximo();
         digita("1 - Correr em direção a luz\n" +
                 "2 - Continuar andando\n" +
                 "3 - parar e analisar o local\n", TimeUnit.MILLISECONDS, temp);
@@ -598,7 +592,6 @@ public class Main {
                 break;
         }
         if (pergunta4 == 3) {
-            digita("chegando nesse outro lugar, você terá duas opções: ", TimeUnit.MILLISECONDS, temp);
             digita("1- tentar contornar o chão falso\n" +
                     "2- Procurar outro jeito.\n", TimeUnit.MILLISECONDS, temp);
 
@@ -643,7 +636,7 @@ public class Main {
             }
         } while (resp2op3 != 1);
 
-        digita("Narrador: Enquanto está deitado no colchão d'água, uma mensagem misteriosa aparece em uma placa próxima: \n", TimeUnit.MILLISECONDS, temp);
+        digita("Enquanto está deitado no colchão d'água, uma mensagem misteriosa aparece em uma placa próxima: \n", TimeUnit.MILLISECONDS, temp);
         digita("Para avançar, resolva o seguinte polinômio: ...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("4x³ - 2x² + 5x - 3\n", TimeUnit.MILLISECONDS, temp);
@@ -670,7 +663,7 @@ public class Main {
                     proximo();
                     if (tentativas == 1) {
                         digita("Sistema: Você acertou na primeira tentativa! Excelente!\n", TimeUnit.MILLISECONDS, temp);
-                        digita("Foram debitados pontos de dicas no seu score.", TimeUnit.MILLISECONDS, temp);
+                        digita("Foram debitados pontos de dicas no seu score.\n", TimeUnit.MILLISECONDS, temp);
                     } else {
                         digita("Sistema: Você acertou após " + tentativas + " tentativas.\n", TimeUnit.MILLISECONDS, temp);
                         digita("Não foram debitados pontos para dicas.\n\n", TimeUnit.MILLISECONDS, temp);
@@ -685,7 +678,7 @@ public class Main {
                         digita("Considere agrupar termos e aplicar fatoração por grupos para simplificar o polinômio\n", TimeUnit.MILLISECONDS, temp);
                         acertos--;
                     }
-                    else digita("Sistema: Você não tem score de dicas o suficiente.", TimeUnit.MILLISECONDS, temp );
+                    else digita("Sistema: Você não tem score de dicas o suficiente.\n", TimeUnit.MILLISECONDS, temp );
                     break;
                 default:
                     digita("Opção inválida.\n", TimeUnit.MILLISECONDS, temp);
@@ -695,7 +688,7 @@ public class Main {
 
 
 
-        digita("Narrador: Ao sair do colchão e atravessar o muro que se abriu em sua frente, seus olhos doem com o intenso brilho que é mostrado...\n" +
+        digita("Ao sair do colchão e atravessar o muro que se abriu em sua frente, seus olhos doem com o intenso brilho que é mostrado...\n" +
                 " Diante dos seus olhos vc se depara com um “novo mundo”...\n", TimeUnit.MILLISECONDS, temp);
         proximo();
         digita("Seres místicos voam sobre sua cabeça, elfos brincam na cidade\n" +
@@ -711,7 +704,7 @@ proximo();
         Scanner input = new Scanner(System.in);
         int resposta, resposta1, resposta2, resposta3;
 
-        digita("Narrador: Na sua frente há uma enorme passarela que leva diretamente a esse castelo. " +
+        digita("Na sua frente há uma enorme passarela que leva diretamente a esse castelo. " +
                 "A passarela tem as cores do arco-íris.\n", TimeUnit.MILLISECONDS, temp);
         digita("Edgar sai na frente, percorrendo a passarela e analisando tudo em volta.\n",
                 TimeUnit.MILLISECONDS, temp);
@@ -764,7 +757,7 @@ proximo();
             } while (resposta1 != 1 && resposta1 != 2);
         }
 
-        digita("\nNarrador: Seguindo Edgar em direção ao castelo, o jogador começa a perceber que o castelo é " +
+        digita("\nSeguindo Edgar em direção ao castelo, o jogador começa a perceber que o castelo é " +
                 "totalmente dourado, tem um brilho intenso, como se fosse ouro.\n", TimeUnit.MILLISECONDS, temp);
         digita("O castelo tem um enorme portão, e ao lado há uma tabuleta de madeira com uma faca.\n",
                 TimeUnit.MILLISECONDS,
@@ -772,7 +765,7 @@ proximo();
         digita("\nEdgar: Eita, não esperava por isso. Bom então aqui é o início do segundo desafio. Vejamos...\n",
                 TimeUnit.MILLISECONDS, temp);
         proximo();
-        digita("Narrador: Edgar sopra sobre a tabuleta com uma espécie de pó, que pouco a pouco forma o desafio.\n",
+        digita("Edgar sopra sobre a tabuleta com uma espécie de pó, que pouco a pouco forma o desafio.\n",
                 TimeUnit.MILLISECONDS,
                 temp);
         digita("\nEscrita da tabuleta: Para por aqui continuar, um enigma matemático terá de acertar...\n",
@@ -810,7 +803,7 @@ proximo();
                                 digita("Não foram debitados pontos para dicas.\n", TimeUnit.MILLISECONDS, temp );
                             }
                         } else {
-                            digita("\nNarrador: Nada acontece, a porta não se mexe nem mesmo um centímetro.\n"
+                            digita("\nNada acontece, a porta não se mexe nem mesmo um centímetro.\n"
                                     + "\nEdgar: Acho que não é essa a resposta...\n", TimeUnit.MILLISECONDS, temp);
                         }
                     } while (respDesafio2 != 9);
@@ -833,10 +826,10 @@ proximo();
             }
         } while (resposta2 != 1);
 
-        digita("\nNarrador: Após talhar a resposta correta na tabuleta a porta finalmente se abre.\n"
+        digita("\nApós talhar a resposta correta na tabuleta a porta finalmente se abre.\n"
                 , TimeUnit.MILLISECONDS, temp);
         digita("\nEdgar: É isso! Vamos entrar, você tem que ver tudo por aqui!\n", TimeUnit.MILLISECONDS, temp);
-        digita("\nNarrador: Ao entrar no castelo há um enorme hall, com enormes pinturas que iam de " +
+        digita("\nAo entrar no castelo há um enorme hall, com enormes pinturas que iam de " +
                 "sistemas numéricos antigos \naté calculadoras e computadores atuais\n", TimeUnit.MILLISECONDS, temp);
         digita("\nEdgar: Há, sim.. Bom, como eu disse aqui é o começo de tudo e isso aqui é o que temos " +
                 "mais orgulho...", TimeUnit.MILLISECONDS, temp);
@@ -844,7 +837,7 @@ proximo();
         digita("O nosso criador, fez com que todos os povos tenham conhecimentos, porém demorou \num pouco para " +
                         "chegarmos onde estamos, porém tem um que acertamos \nem cheio e diversas pessoas ainda usam, é esse aqui:\n"
                 , TimeUnit.MILLISECONDS, temp);
-        digita("\nNarrador: Edgar mostra uma foto de um objeto com diversas bolas ao redor que ao " +
+        digita("\nEdgar mostra uma foto de um objeto com diversas bolas ao redor que ao " +
                 "mexer elas podemos chegar a um determinado valor.\n", TimeUnit.MILLISECONDS, temp);
         digita("\nEdgar: Você conhece esse aqui?\n", TimeUnit.MILLISECONDS, temp);
         do {
@@ -868,7 +861,7 @@ proximo();
                     digita("\nSistema: Opção Invalida.\n", TimeUnit.MILLISECONDS, temp);
             }
         } while (resposta3 != 1 && resposta3 != 2 && resposta3 != 3);
-        digita("\nNarrador: Seguindo em frente no enorme castelo dá se ver diversos elfos com livros conversando " +
+        digita("\nSeguindo em frente no enorme castelo dá se ver diversos elfos com livros conversando " +
                 "uns com os outros.\n", TimeUnit.MILLISECONDS, temp);
         digita("Uma enorme porta está em frente de vocês agora, uma enorme porta para o que aparenta ser para " +
                 "um ser enorme passar.\n", TimeUnit.MILLISECONDS, temp);
@@ -877,7 +870,7 @@ proximo();
         digita("Só temos que falar com o guardião antes. Aliás, você sabe jogar cartas?\n"
                 , TimeUnit.MILLISECONDS, temp);
         digita("\n!!! BOOOOOM !!!\n", TimeUnit.MILLISECONDS, temp);
-        digita("\nNarrador: Antes que você possa responder a porta a frente de voces se abre com um intensa " +
+        digita("\nAntes que você possa responder a porta a frente de voces se abre com um intensa " +
                 "força,\nrevelando um grande ser, seu rosto é revestido com pedras, " +
                 "diversos amuletos estão em seu braço,\ncom números e operações escritas, " +
                 "Em seu cinturão há um enorme baralho feito de um tipo de mármore.\n", TimeUnit.MILLISECONDS, temp);
@@ -909,8 +902,8 @@ proximo();
         digita("todos com diversas contas acontecendo, elfos fiscalizam e fazem anotações sobre tudo " +
                 "que está sendo passado.\n", TimeUnit.MILLISECONDS, temp);
         digita("\nGuardião de Pedra: Criador, com licença. Temos um diferente.\n", TimeUnit.MILLISECONDS, temp);
-        digita("\nNarrador: Dois elfos vão em direção a cadeira e começam a virá-la lentamente. Ao virar totalmente a cadeira é visto que... \n", TimeUnit.MILLISECONDS, temp);
-
+        digita("\nDois elfos vão em direção a cadeira e começam a virá-la lentamente. Ao virar totalmente a cadeira é visto que... \n", TimeUnit.MILLISECONDS, temp);
+        proximo();
 
         capitulo4(nome);
     }
@@ -1302,7 +1295,7 @@ proximo();
             switch (op2){
                 case 1:
                     digita("\nEdgar: Primeiramente, você precisa saber algumas contas de matemática,\nvou te explicar o que você deve fazer ao encontrar a resposta.\n", TimeUnit.MILLISECONDS, temp);
-                    digita("Sempre que você já souber a resposta de algo você deve apertar 9 e “falar” a resposta da questão.\n", TimeUnit.MILLISECONDS, temp);
+                    digita("Sempre que você já souber a resposta de algo você deve selecionar a alternativa correta.\n", TimeUnit.MILLISECONDS, temp);
                     break;
                 case 2:
                     digita("Edgar: Ah tá, você é só mais um a procura de conhecimento.\nDeixa eu te contar que conhecimento não se acha através de tesouros.\nAo longo do túnel você vai entender.\n", TimeUnit.MILLISECONDS, temp);
@@ -1342,7 +1335,7 @@ proximo();
         //Fim do cap1
         digita("\nApós seguir seu caminho Edgar te leva para outra sala...", TimeUnit.MILLISECONDS, temp);
         proximo();
-        capitulo2(nome);
+        capitulo1(nome);
 
     }
 
